@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://qj48yi0d7s3"]
+
+[ext_resource type="PackedScene" uid="uid://cx0ilp71jq5ck" path="res://scenes/agents/player.tscn" id="1_y1hli"]
+[ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="1_ysgaf"]
+[ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/items/trashManager.tscn" id="3_tkwfr"]
+[ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/items/trash.tscn" id="4_i28r1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2pnlp"]
+bounce = 1.2
+
+[node name="Root" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 135)
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Map" parent="." instance=ExtResource("1_ysgaf")]
+
+[node name="Player" parent="." instance=ExtResource("1_y1hli")]
+position = Vector2(240, 135)
+physics_material_override = SubResource("PhysicsMaterial_2pnlp")
+linear_damp = 0.5
+
+[node name="TrashManager" parent="." instance=ExtResource("3_tkwfr")]
+
+[node name="Trash1" parent="TrashManager" instance=ExtResource("4_i28r1")]
+position = Vector2(50, 246)
+
+[node name="Trash2" parent="TrashManager" instance=ExtResource("4_i28r1")]
+position = Vector2(246, 246)

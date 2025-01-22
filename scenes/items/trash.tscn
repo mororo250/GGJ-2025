@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://3fprt37su4vb"]
+
+[ext_resource type="Script" path="res://src/items/Trash.cs" id="1_tht5c"]
+[ext_resource type="Texture2D" uid="uid://g07tamst272o" path="res://assets/item/plastico-sp.png" id="2_nthrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rlx0d"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g1m4"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kro2c"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5uw3"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugtn8"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdqfm"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvv53"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22dhl"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eocvg"]
+atlas = ExtResource("2_nthrj")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iisof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g1m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kro2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5uw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugtn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdqfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvv53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22dhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eocvg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_tht5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rlx0d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iisof")
+frame_progress = 0.978218
