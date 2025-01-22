@@ -14,7 +14,6 @@ radius = 32.0
 
 [node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("_chain")]
 gravity_scale = 0.02
-can_sleep = false
 lock_rotation = true
 continuous_cd = 2
 contact_monitor = true
@@ -29,6 +28,8 @@ script = ExtResource("2_lv8g0")
 
 [node name="ChainTip" type="StaticBody2D" parent="Chain"]
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_5xasv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Chain/ChainTip"]
@@ -54,3 +55,5 @@ texture = ExtResource("2_neshv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j6bdv")
+
+[connection signal="body_shape_entered" from="." to="." method="OnCollision"]

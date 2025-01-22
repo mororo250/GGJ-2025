@@ -28,7 +28,10 @@ public partial class Player : RigidBody2D
 	public override void _Ready()
 	{
 	}
-
+	
+	public override void _Process(double delta)
+	{
+	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -66,7 +69,6 @@ public partial class Player : RigidBody2D
 		}	
 	}
 	
-
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey keyEvent)
@@ -115,5 +117,10 @@ public partial class Player : RigidBody2D
 				}
 			}
 		}
+	}
+
+	public void OnCollision(Rid bodyRd, Node body, int bodyShapeIdx, int localShapeIdx)
+	{
+		GD.Print("Player collided with something");
 	}
 }
