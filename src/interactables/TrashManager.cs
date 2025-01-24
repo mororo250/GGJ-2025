@@ -1,4 +1,7 @@
+using agents;
 using Godot;
+
+namespace trash;
 
 public partial class TrashManager : Node2D
 {

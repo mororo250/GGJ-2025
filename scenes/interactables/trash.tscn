@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://3fprt37su4vb"]
 
-[ext_resource type="Script" path="res://src/items/Trash.cs" id="1_tht5c"]
+[ext_resource type="Script" path="res://src/interactables/Trash.cs" id="1_tht5c"]
 [ext_resource type="Texture2D" uid="uid://g07tamst272o" path="res://assets/item/plastico-sp.png" id="2_nthrj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rlx0d"]
@@ -70,15 +70,16 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("_animatedSprite2D") groups=["trash"]]
 gravity_scale = 0.02
 continuous_cd = 1
 max_contacts_reported = 1
 script = ExtResource("1_tht5c")
+_animatedSprite2D = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rlx0d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iisof")
-frame_progress = 0.978218
+frame_progress = 0.771985

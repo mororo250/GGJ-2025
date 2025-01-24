@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfv5827j3cpnu"]
+
+[ext_resource type="Texture2D" uid="uid://b7tavl6pbtv8f" path="res://assets/ui/coração surgindo  -.png" id="2_jabho"]
+[ext_resource type="Texture2D" uid="uid://pek5exlthtrt" path="res://assets/ui/coração.png" id="3_cqxdt"]
+[ext_resource type="Texture2D" uid="uid://cx5i37310rs6m" path="res://assets/ui/coração estourando.png" id="4_8yyeq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o720c"]
+atlas = ExtResource("2_jabho")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ege"]
+atlas = ExtResource("2_jabho")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjbka"]
+atlas = ExtResource("2_jabho")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0r0j"]
+atlas = ExtResource("2_jabho")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwe12"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_budkl"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn2uv"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3gqo"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbysr"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuulb"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2edn"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfado"]
+atlas = ExtResource("4_8yyeq")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0l0mj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o720c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ege")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjbka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0r0j")
+}],
+"loop": false,
+"name": &"Bloom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cqxdt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwe12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_budkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn2uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3gqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbysr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuulb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2edn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfado")
+}],
+"loop": false,
+"name": &"Pop",
+"speed": 12.0
+}]
+
+[node name="BubbleUi" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0l0mj")
+animation = &"Idle"

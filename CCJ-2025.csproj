@@ -7,6 +7,6 @@
     <RootNamespace>CCJ2025</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="scenes\items\" />
+    <Folder Include="scenes\" />
   </ItemGroup>
 </Project>

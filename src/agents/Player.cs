@@ -1,6 +1,8 @@
 using System;
-using CCJ2025.agents;
 using Godot;
+using trash;
+
+namespace agents;
 
 // Todo: Do proper implementation of controls with actions
 [Flags]
@@ -16,26 +18,52 @@ enum MovementDirection
 public partial class Player : RigidBody2D
 {
 	// Movement
+	[Export] private Sprite2D _sprite2D;
 	[Export] private float _impulse = 1.0f;
 	private  MovementDirection _movementDirection = MovementDirection.None;
 
 	// Chain
-	[Signal] public delegate void  ChainingEventHandler(bool IsChaning);
-	[Export] private         Chain _chain;
-	[Export] private         int   _chainMaxLength = 128;
-	private                  bool  _isChaining     = false;
+	[Export] private Chain _chain;
+	[Signal] public delegate void TrashCollectedEventHandler();
+
+	[Export] private uint _oxygenMaxValue = 500;
+	[Export] private uint _healthMaxValue  = 1000;
+	[Export] private uint _oxygenDecayRate = 1;
+
+	// stats
+	private uint _trashCount;
+	private uint _health;
+	private uint _oxygen;
+	public  uint TrashCount => _trashCount;
+	public  uint Health     => _trashCount;
+	public  uint Oxygen     => _trashCount;
+
+	public void RecoverOxygen()
+	{
+		_oxygen = _oxygenMaxValue;
+	}
 	
 	public override void _Ready()
 	{
-	}
-	
-	public override void _Process(double delta)
-	{
+		_chain.TrashCollected += OnTrashColected;
+		_health = _healthMaxValue;
 	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		UpdateMovement();
+		UpdateOxygen();
+		
+		if (_health <= 0)
+		{
+			// Game over screen
+		}
+	}
+
+	private void UpdateMovement()
+	{
 		Vector2 impulse = Vector2.Zero;
+		_sprite2D.Frame = 0;
 
 		if ((_movementDirection & MovementDirection.Up) != 0)
 			impulse.Y = -_impulse;
@@ -44,31 +72,31 @@ public partial class Player : RigidBody2D
 			impulse.Y += _impulse;
 
 		if ((_movementDirection & MovementDirection.Left) != 0)
-			impulse.X -= _impulse;
+		{
+			_sprite2D.Frame =  1;
+			impulse.X       -= _impulse;
+		}
 
 		if ((_movementDirection & MovementDirection.Right) != 0)
-			impulse.X += _impulse;
+		{
+			_sprite2D.Frame =  3;
+			impulse.X       += _impulse;
+		}
 
 		ApplyCentralImpulse(impulse);
-
-
-		if (_isChaining)
-		{
-			_chain.Length += 0.5f;
-			if (_chain.Length >= _chainMaxLength)
-			{
-				EmitSignal(nameof(ChainingEventHandler), true);
-				_chain.Length = _chainMaxLength;
-			}
-		}
-		else if (_chain.Length > 0)
-		{
-			_chain.Length -= 0.5f;
-			if (_chain.Length < 0)
-				_chain.Length = 0;
-		}	
 	}
-	
+
+	private void UpdateOxygen()
+	{
+		if (_oxygen <= 0)
+		{
+			_health -= 1;
+			_oxygen = 0;
+		}
+		else 
+			_oxygen -= _oxygenDecayRate;
+	}
+
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey keyEvent)
@@ -91,7 +119,7 @@ public partial class Player : RigidBody2D
 						_movementDirection |= MovementDirection.Right;
 						break;
 					case Key.Space:
-						_isChaining = true;
+						_chain.OnChaining(true);
 						break;
 				}
 			}
@@ -112,15 +140,16 @@ public partial class Player : RigidBody2D
 						_movementDirection &= ~MovementDirection.Right;
 						break;
 					case Key.Space:
-						_isChaining = false;
+						_chain.OnChaining(false);
 						break;
 				}
 			}
 		}
 	}
 
-	public void OnCollision(Rid bodyRd, Node body, int bodyShapeIdx, int localShapeIdx)
+	public void OnTrashColected()
 	{
-		GD.Print("Player collided with something");
+		_trashCount++;
+		EmitSignal(SignalName.TrashCollected);
 	}
 }

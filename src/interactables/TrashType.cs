@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace CCJ2025.items;
+namespace trash;
 
 public partial class TrashType : Resource
 {
