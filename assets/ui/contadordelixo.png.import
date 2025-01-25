@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc48cgp1rwl1b"
-path="res://.godot/imported/barra.png-95be6c449b72ff4591ea27959495920c.ctex"
+uid="uid://d2o0mu5vsersf"
+path="res://.godot/imported/contadordelixo.png-fbbbc2d71c2caf788bb59f78c0c57901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/barra.png"
-dest_files=["res://.godot/imported/barra.png-95be6c449b72ff4591ea27959495920c.ctex"]
+source_file="res://assets/ui/contadordelixo.png"
+dest_files=["res://.godot/imported/contadordelixo.png-fbbbc2d71c2caf788bb59f78c0c57901.ctex"]
 
 [params]
 
