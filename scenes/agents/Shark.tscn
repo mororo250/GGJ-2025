@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://clsjaw8mnh6y8"]
+[gd_scene load_steps=5 format=3 uid="uid://clsjaw8mnh6y8"]
 
 [ext_resource type="SpriteFrames" uid="uid://8o2yi3kx4xu5" path="res://assets/animation/Shark.tres" id="1_epk5t"]
 [ext_resource type="Script" path="res://src/agents/Shark.cs" id="1_htt65"]
@@ -7,7 +7,11 @@
 radius = 5.0
 height = 36.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jihy0"]
+radius = 5.0
+
 [node name="SharkBodyController" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
+physics_interpolation_mode = 2
 collision_layer = 2
 collision_mask = 2
 motion_mode = 1
@@ -22,8 +26,24 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ffmsf")
 
 [node name="Shark" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = ExtResource("1_epk5t")
 animation = &"Attack"
+frame_progress = 0.878063
+
+[node name="PatrolList" type="Node2D" parent="Shark"]
+
+[node name="Point1" type="Area2D" parent="Shark/PatrolList"]
+position = Vector2(131, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/PatrolList/Point1"]
+shape = SubResource("CircleShape2D_jihy0")
+
+[node name="Point2" type="Area2D" parent="Shark/PatrolList"]
+position = Vector2(-102, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Shark/PatrolList/Point2"]
+shape = SubResource("CircleShape2D_jihy0")
 
 [node name="SharkVision" type="Area2D" parent="."]
 

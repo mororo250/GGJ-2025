@@ -52,6 +52,11 @@ public partial class Player : RigidBody2D
 		_health = _healthMaxValue;
 	}
 	
+	public void TakeDamage(uint damage)
+	{
+		_health -= damage;
+	}
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		UpdateMovement();

@@ -17,6 +17,7 @@ limit_begin = Vector2(0, 0)
 follow_viewport = false
 
 [node name="layer1" type="Sprite2D" parent="SeeWaves"]
+texture_filter = 1
 texture = ExtResource("1_flqcl")
 centered = false
 
@@ -28,6 +29,7 @@ limit_begin = Vector2(0, 0)
 follow_viewport = false
 
 [node name="layer2" type="Sprite2D" parent="Mautains1"]
+texture_filter = 1
 texture = ExtResource("2_56ss7")
 centered = false
 
@@ -39,21 +41,24 @@ limit_begin = Vector2(0, 0)
 follow_viewport = false
 
 [node name="layer3" type="Sprite2D" parent="Mautains2"]
+texture_filter = 1
 texture = ExtResource("3_5smnn")
 centered = false
 
 [node name="Corals1" type="Parallax2D" parent="."]
-scroll_scale = Vector2(-0.3, 0)
+scroll_scale = Vector2(-0.35, 0)
 repeat_size = Vector2(1280, 0)
 repeat_times = 10
 limit_begin = Vector2(0, 0)
 follow_viewport = false
 
 [node name="layer4" type="Sprite2D" parent="Corals1"]
+texture_filter = 1
 texture = ExtResource("4_xvqo6")
 centered = false
 
 [node name="Corals2" type="Parallax2D" parent="."]
+texture_filter = 1
 scroll_scale = Vector2(-0.1, 0)
 repeat_size = Vector2(1280, 0)
 repeat_times = 10
@@ -61,5 +66,6 @@ limit_begin = Vector2(0, 0)
 follow_viewport = false
 
 [node name="layer5" type="Sprite2D" parent="Corals2"]
+texture_filter = 1
 texture = ExtResource("5_on06d")
 centered = false
