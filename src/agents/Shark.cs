@@ -20,6 +20,7 @@ public partial class Shark : CharacterBody2D
 	[Export] private float _attackSpeed = 80; //  pixels per seconds
 	[Export] private uint  _cooldownTime = 0; // frames
 	[Export] private uint  _attackDamage = 250; 
+	[Export] private uint  _attackRange = 300; // pixels
 	private uint  _currentCooldownTime = 0; // frames
 	
 	
@@ -86,9 +87,15 @@ public partial class Shark : CharacterBody2D
 
 	private void Attack()
 	{
-		// Get the closest patrol point
-		// If distance is bigger than x 
-		// Stop going after it
+		int closestPatrolPoint = ClosestPatrolPoint();
+		Vector2 patrolPointPos = _patrolPath[closestPatrolPoint].GlobalPosition;
+		if (GlobalPosition.DistanceTo(patrolPointPos) > _attackRange)
+		{
+			_currentPatrolPoint = closestPatrolPoint;
+			_state = SharkState.Swimming;
+			_animatedSprite.Play("Swim");
+			return;
+		}
 		
 		Vector2 target = _player.GlobalPosition;
 		Vector2 direction = target - GlobalPosition;
@@ -96,7 +103,23 @@ public partial class Shark : CharacterBody2D
 		Velocity = direction * _attackSpeed;
 	}
 	
-		public override void _Process(double delta)
+	private int ClosestPatrolPoint()
+	{
+		float minDistance = float.MaxValue;
+		int   closestPatrolPoint = 0;
+		for (int i = 0; i < _patrolPath.Count; i++)
+		{
+			float distance = GlobalPosition.DistanceTo(_patrolPath[i].GlobalPosition);
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				closestPatrolPoint = i;
+			}
+		}
+
+		return closestPatrolPoint;
+	}
+	public override void _Process(double delta)
 	{
 		UpdateSprite();
 	}
@@ -129,6 +152,10 @@ public partial class Shark : CharacterBody2D
 	{
 		if (_currentCooldownTime > 0)
 			return;
+		
+		if (GlobalPosition.DistanceTo(_patrolPath[_currentPatrolPoint].GlobalPosition) > _attackRange)
+			return;
+		
 		
 		if (node is Player player)
 		{
