@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1aaa3b8lbf"]
+
+[ext_resource type="Texture2D" uid="uid://dka8rhmihdf8r" path="res://assets/ui/barra.png" id="1_2clhr"]
+[ext_resource type="Script" path="res://src/ui/StatsBar.cs" id="2_321s6"]
+[ext_resource type="PackedScene" uid="uid://dfv5827j3cpnu" path="res://scenes/ui/BubbleUi.tscn" id="4_myyc1"]
+[ext_resource type="SpriteFrames" uid="uid://b3qw2ioy54t2f" path="res://assets/animation/bubble.tres" id="5_vysl2"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 70.0
+texture = ExtResource("1_2clhr")
+
+[node name="HealthBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 8.0
+script = ExtResource("2_321s6")
+
+[node name="BubbleUi" parent="HealthBar" instance=ExtResource("4_myyc1")]
+centered = false
+
+[node name="BubbleUi2" parent="HealthBar" instance=ExtResource("4_myyc1")]
+position = Vector2(18, -1)
+centered = false
+
+[node name="BubbleUi3" parent="HealthBar" instance=ExtResource("4_myyc1")]
+position = Vector2(36, -2)
+centered = false
+
+[node name="BubbleUi4" parent="HealthBar" instance=ExtResource("4_myyc1")]
+position = Vector2(54, -3)
+centered = false
+
+[node name="OxygenBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 55.0
+offset_top = 33.0
+offset_right = 55.0
+offset_bottom = 33.0
+script = ExtResource("2_321s6")
+
+[node name="BubbleUi" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+sprite_frames = ExtResource("5_vysl2")
+centered = false
+
+[node name="BubbleUi2" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+position = Vector2(18, -1)
+sprite_frames = ExtResource("5_vysl2")
+centered = false
+
+[node name="BubbleUi3" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+position = Vector2(36, -2)
+sprite_frames = ExtResource("5_vysl2")
+centered = false
+
+[node name="BubbleUi4" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+position = Vector2(54, -3)
+sprite_frames = ExtResource("5_vysl2")
+centered = false

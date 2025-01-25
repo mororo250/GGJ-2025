@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://clsjaw8mnh6y8"]
+
+[ext_resource type="SpriteFrames" uid="uid://8o2yi3kx4xu5" path="res://assets/animation/Shark.tres" id="1_epk5t"]
+[ext_resource type="Script" path="res://src/agents/Shark.cs" id="1_htt65"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmsf"]
+radius = 5.0
+height = 36.0
+
+[node name="SharkBodyController" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+platform_on_leave = 2
+script = ExtResource("1_htt65")
+_animatedSprite = NodePath("Shark")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 2)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ffmsf")
+
+[node name="Shark" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_epk5t")
+animation = &"Attack"
+
+[node name="SharkVision" type="Area2D" parent="."]
+
+[node name="VisionShape" type="CollisionPolygon2D" parent="SharkVision"]
+position = Vector2(22, 2)
+polygon = PackedVector2Array(0, -10, 0, 10, 150, 50, 150, -50)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(5, 2)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ffmsf")
+
+[connection signal="body_entered" from="SharkVision" to="." method="OnPlayerSpotted"]
+[connection signal="body_entered" from="HitBox" to="." method="OnBodyEntered"]

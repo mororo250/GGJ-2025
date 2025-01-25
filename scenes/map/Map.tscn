@@ -111,7 +111,8 @@ texture = ExtResource("1_mo0yd")
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5, 1.25, -5.125, 1, 0.875, -3.9685, 0.7937, -3.9685, 4.91102, -8, 8, -8, -8, 8, -8)
 
 [sub_resource type="TileSet" id="TileSet_nq2ec"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 15
+physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_ah6g6")
 
 [node name="Map" type="Node2D"]

@@ -1,116 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bpk6u4cwx82wl"]
+[gd_scene load_steps=5 format=3 uid="uid://bpk6u4cwx82wl"]
 
 [ext_resource type="Script" path="res://src/interactables/Bubbles.cs" id="1_2toy2"]
-[ext_resource type="Texture2D" uid="uid://pek5exlthtrt" path="res://assets/ui/coração.png" id="2_mhtgw"]
-[ext_resource type="Texture2D" uid="uid://b7tavl6pbtv8f" path="res://assets/ui/coração surgindo  -.png" id="3_vetwc"]
-[ext_resource type="Texture2D" uid="uid://cx5i37310rs6m" path="res://assets/ui/coração estourando.png" id="4_v60e4"]
+[ext_resource type="SpriteFrames" uid="uid://b3qw2ioy54t2f" path="res://assets/animation/bubble.tres" id="2_n7ugt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jex7b"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o720c"]
-atlas = ExtResource("3_vetwc")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n0ege"]
-atlas = ExtResource("3_vetwc")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mjbka"]
-atlas = ExtResource("3_vetwc")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0r0j"]
-atlas = ExtResource("3_vetwc")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwe12"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_budkl"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dn2uv"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3gqo"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbysr"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vuulb"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2edn"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfado"]
-atlas = ExtResource("4_v60e4")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0l0mj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o720c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n0ege")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mjbka")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0r0j")
-}],
-"loop": false,
-"name": &"Bloom",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_mhtgw")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rwe12")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_budkl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dn2uv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3gqo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wbysr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vuulb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2edn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dfado")
-}],
-"loop": false,
-"name": &"Pop",
-"speed": 12.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l6kpu"]
 radius = 6.0
@@ -128,7 +21,7 @@ _area2D = NodePath("bubbleArea")
 _animatedSprite2D = NodePath("BubbleAnimation")
 
 [node name="BubbleAnimation" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_0l0mj")
+sprite_frames = ExtResource("2_n7ugt")
 animation = &"Bloom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
