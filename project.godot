@@ -22,7 +22,7 @@ window/size/viewport_height=1080
 window/size/initial_position_type=2
 window/size/borderless=true
 window/stretch/mode="canvas_items"
-window/stretch/scale=4.0
+window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
 [dotnet]

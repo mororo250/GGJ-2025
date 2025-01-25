@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lfhk5f000cdo"]
+
+[node name="Camera2d" type="Camera2D"]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
