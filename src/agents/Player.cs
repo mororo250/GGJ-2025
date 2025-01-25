@@ -26,17 +26,19 @@ public partial class Player : RigidBody2D
 	[Export] private Chain _chain;
 	[Signal] public delegate void TrashCollectedEventHandler();
 
-	[Export] private uint _oxygenMaxValue = 500;
+	[Export] private uint _oxygenMaxValue = 4000;
 	[Export] private uint _healthMaxValue  = 1000;
 	[Export] private uint _oxygenDecayRate = 1;
+	public uint OxygenMaxValue => _oxygenMaxValue;
+	public uint HealthMaxValue  => _healthMaxValue;
 
 	// stats
 	private uint _trashCount;
 	private uint _health;
 	private uint _oxygen;
 	public  uint TrashCount => _trashCount;
-	public  uint Health     => _trashCount;
-	public  uint Oxygen     => _trashCount;
+	public  uint Health     => _health;
+	public  uint Oxygen     => _oxygen;
 
 	public void RecoverOxygen()
 	{
@@ -46,7 +48,13 @@ public partial class Player : RigidBody2D
 	public override void _Ready()
 	{
 		_chain.TrashCollected += OnTrashColected;
+		_oxygen =  _oxygenMaxValue;
 		_health = _healthMaxValue;
+	}
+	
+	public void TakeDamage(uint damage)
+	{
+		_health -= damage;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -90,7 +98,13 @@ public partial class Player : RigidBody2D
 	{
 		if (_oxygen <= 0)
 		{
-			_health -= 1;
+			_health -= _oxygenDecayRate;
+			if (_health == 0)
+			{
+				_health = 1;
+				// Game over screen
+			}
+
 			_oxygen = 0;
 		}
 		else 

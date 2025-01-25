@@ -34,7 +34,7 @@ public partial class BubblesManager : Node
 		{
 			if (eventMouse.ButtonMask == MouseButtonMask.Left)
 			{
-				CreateBubble(eventMouse.Position);
+				CreateBubble(GetViewport().GetCamera2D().GetGlobalMousePosition());
 			}
 		}
 	}

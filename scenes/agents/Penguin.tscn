@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkl5w7b6gjahw"]
+
+[ext_resource type="Texture2D" uid="uid://bb3qoqewhrpx1" path="res://assets/agents/penguin/pinguimfelizz.png" id="1_6lu45"]
+[ext_resource type="Texture2D" uid="uid://bi1oda7vlcm6v" path="res://assets/agents/penguin/pinguimpreso.png" id="2_udrkx"]
+[ext_resource type="Script" path="res://src/agents/Penguin.cs" id="3_nf6vg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbqpm"]
+atlas = ExtResource("1_6lu45")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pu4v"]
+atlas = ExtResource("1_6lu45")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0frh"]
+atlas = ExtResource("2_udrkx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umggt"]
+atlas = ExtResource("2_udrkx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc3da"]
+atlas = ExtResource("2_udrkx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeuhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbqpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pu4v")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0frh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umggt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc3da")
+}],
+"loop": true,
+"name": &"Locked",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adkk5"]
+radius = 64.0
+
+[node name="Penguin" type="AnimatedSprite2D"]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_xeuhb")
+animation = &"Locked"
+frame_progress = 0.310977
+script = ExtResource("3_nf6vg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_adkk5")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnPlayerDetectorBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="OnPlayerDetectorBodyLeave"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ija4jvir5gt"]
+
+[ext_resource type="Texture2D" uid="uid://d2o0mu5vsersf" path="res://assets/ui/contadordelixo.png" id="1_g3gyh"]
+
+[node name="TrashCounter" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TrashCounterSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 47.0
+offset_bottom = 41.0
+texture = ExtResource("1_g3gyh")

@@ -6,10 +6,11 @@ namespace agents;
 
 public partial class Chain : Node2D
 {
-	[Export] private StaticBody2D _chainTip;
-	[Export] private Area2D       _chainTipArea;
-	[Export] private Sprite2D     _chainSprite;
-	[Export] private int          _chainMaxLength = 16;
+	[Export] private StaticBody2D     _chainTip;
+	[Export] private Area2D           _chainTipArea;
+	[Export] private Sprite2D         _chainSprite;
+	[Export] private AnimatedSprite2D _chainTipSprite;
+	[Export] private int              _chainMaxLength = 16;
 
 	private          float        _length = 0;
 	private          bool		  _isChaining;
@@ -22,12 +23,11 @@ public partial class Chain : Node2D
 		get => _length;
 		private set
 		{
-			const int spriteSize = 64;
-			_chainSprite.RegionRect = new Rect2(0, 0, spriteSize, value * spriteSize);
+			const int spriteHeight = 4;
+			_chainSprite.RegionRect = new Rect2(0, 0, 3, value * spriteHeight);
 			
-			const int distanceBetweenChainLinks = 2;
 			// 1 is to account the radius of the chain tip
-			_chainTip.Position = new Vector2(0, distanceBetweenChainLinks * (value + 1));
+			_chainTip.Position = new Vector2(0, spriteHeight * (value - 1));
 			_length            = value;
 		}
 	}
@@ -42,34 +42,17 @@ public partial class Chain : Node2D
 		if (_collectedTrash != null)
 			_collectedTrash.GlobalPosition = _chainTip.GlobalPosition;
 		
-		if (_isChaining)
-		{
-			Length += 0.5f;
-			if (Length >= _chainMaxLength)
-			{
-				Length = _chainMaxLength;
-			}
-		}
-		else if (Length > 0)
-		{
-			Length -= 0.5f;
-			if (Length < 0)
-				Length = 0;
-		}	
-
-		// Free trash
-		if (_length == 0 && _collectedTrash != null)
-		{
-			EmitSignal(SignalName.TrashCollected);
-			_collectedTrash.QueueFree();
-			_collectedTrash = null;
-		}
+		UpdateChainLength();
+		FreeTrash();
 	}
 	
 	private void UpdateChainLength()
 	{
 		if (_isChaining)
 		{
+			if(_length < 0.5f)
+				_chainTipSprite.Play("Opening");
+			
 			Length += 0.5f;
 			if (Length >= _chainMaxLength)
 			{
@@ -81,6 +64,16 @@ public partial class Chain : Node2D
 			Length -= 0.5f;
 			if (Length < 0)
 				Length = 0;
+		}
+	}
+
+	private void FreeTrash()
+	{
+		if (_length == 0 && _collectedTrash != null)
+		{
+			EmitSignal(SignalName.TrashCollected);
+			_collectedTrash.QueueFree();
+			_collectedTrash = null;
 		}
 	}
 
@@ -99,6 +92,8 @@ public partial class Chain : Node2D
 					return;
 				}
 			}
+			
+			_chainTipSprite.Play("Closing");
 		}
 	}
 }

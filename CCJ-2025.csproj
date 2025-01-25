@@ -8,5 +8,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="scenes\" />
+    <Folder Include="scenes\ui\" />
   </ItemGroup>
 </Project>
