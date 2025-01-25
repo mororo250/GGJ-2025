@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cthrtd8y4qv85"
-path="res://.godot/imported/tubarão base.png-ad3705252c7a3cef333f51a5c1500c13.ctex"
+uid="uid://db4c35dyjcsav"
+path="res://.godot/imported/2X1uZqM.png-05785199d122b0b4f6ef9d9946a0d99e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/agents/tubarão base.png"
-dest_files=["res://.godot/imported/tubarão base.png-ad3705252c7a3cef333f51a5c1500c13.ctex"]
+source_file="res://assets/parallax/DeepSeek - Into the Unknown_files/2X1uZqM.png"
+dest_files=["res://.godot/imported/2X1uZqM.png-05785199d122b0b4f6ef9d9946a0d99e.ctex"]
 
 [params]
 

@@ -1,17 +1,107 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx0ilp71jq5ck"]
+[gd_scene load_steps=21 format=3 uid="uid://cx0ilp71jq5ck"]
 
 [ext_resource type="Script" path="res://src/agents/Player.cs" id="1_0mgrt"]
 [ext_resource type="Script" path="res://src/agents/Chain.cs" id="2_lv8g0"]
-[ext_resource type="Texture2D" uid="uid://o3l5j0ntfv8n" path="res://assets/test/primitiveShapes/circle-64.png" id="2_neshv"]
+[ext_resource type="Texture2D" uid="uid://dbwhpvmrsnpmg" path="res://assets/player/Gancho.png" id="3_fvx15"]
 [ext_resource type="Texture2D" uid="uid://hhcwyurve760" path="res://assets/player/Submarino.png" id="4_7hhma"]
+[ext_resource type="Texture2D" uid="uid://dc2weh6k1y33p" path="res://assets/player/Corrente.png" id="4_mx36n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6pvqm"]
 bounce = 1.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xasv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcmgd"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(0, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3erm"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(48, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7127"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(64, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpppl"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(80, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7i7"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(48, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86kyd"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(0, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nno50"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(16, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qahc"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(32, 7, 16, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbkrc"]
+atlas = ExtResource("3_fvx15")
+region = Rect2(48, 7, 16, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0b03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcmgd")
+}],
+"loop": true,
+"name": &"Close",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3erm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7127")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpppl")
+}],
+"loop": false,
+"name": &"Closing",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe7i7")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86kyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nno50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qahc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbkrc")
+}],
+"loop": false,
+"name": &"Opening",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kli1"]
+radius = 5.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ry2yf"]
-radius = 32.0
+radius = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6bdv"]
 radius = 18.0
@@ -28,43 +118,51 @@ script = ExtResource("1_0mgrt")
 _sprite2D = NodePath("SubSprite")
 _chain = NodePath("Chain")
 
-[node name="Chain" type="Node2D" parent="." node_paths=PackedStringArray("_chainTip", "_chainTipArea", "_chainSprite")]
-position = Vector2(0, 12)
+[node name="Chain" type="Node2D" parent="." node_paths=PackedStringArray("_chainTip", "_chainTipArea", "_chainSprite", "_chainTipSprite")]
+position = Vector2(0, 8)
 script = ExtResource("2_lv8g0")
 _chainTip = NodePath("ChainTipBody")
 _chainTipArea = NodePath("ChainTipBody/ChainTipOverlapArea")
 _chainSprite = NodePath("ChainSprite")
+_chainTipSprite = NodePath("ChainTipBody/ChainTipSprite")
 
 [node name="ChainTipBody" type="StaticBody2D" parent="Chain"]
-scale = Vector2(0.063, 0.063)
+position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_5xasv")
 
-[node name="ChainTipSprite" type="Sprite2D" parent="Chain/ChainTipBody"]
+[node name="ChainTipSprite" type="AnimatedSprite2D" parent="Chain/ChainTipBody"]
+texture_filter = 1
 texture_repeat = 2
-texture = ExtResource("2_neshv")
-region_rect = Rect2(0, 0, 32, 32)
+position = Vector2(-7, -3)
+sprite_frames = SubResource("SpriteFrames_g0b03")
+animation = &"Opening"
+centered = false
 
 [node name="ChainTipCollisionShape" type="CollisionShape2D" parent="Chain/ChainTipBody"]
-shape = SubResource("CircleShape2D_ry2yf")
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5kli1")
 
 [node name="ChainTipOverlapArea" type="Area2D" parent="Chain/ChainTipBody"]
+position = Vector2(0, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chain/ChainTipBody/ChainTipOverlapArea"]
 shape = SubResource("CircleShape2D_ry2yf")
 
 [node name="ChainSprite" type="Sprite2D" parent="Chain"]
+texture_filter = 1
 texture_repeat = 2
-scale = Vector2(0.031, 0.031)
-texture = ExtResource("2_neshv")
+position = Vector2(0, -8)
+texture = ExtResource("4_mx36n")
 centered = false
-offset = Vector2(-32, 0)
-flip_v = true
+offset = Vector2(-1, 0)
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 0)
+region_rect = Rect2(6, 0, 3, 4)
 
 [node name="SubSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
 texture = ExtResource("4_7hhma")
 hframes = 4
 

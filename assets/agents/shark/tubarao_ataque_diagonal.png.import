@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4fdyxxtufryd"
-path="res://.godot/imported/tubarão araque-sheet-sheet.png-4a20f46aeefdf4d123709f1eff298cb8.ctex"
+uid="uid://dt4dfllo50k3s"
+path="res://.godot/imported/tubarao_ataque_diagonal.png-d99cdfa8261fc52a7c632fef384c6316.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/agents/tubarão araque-sheet-sheet.png"
-dest_files=["res://.godot/imported/tubarão araque-sheet-sheet.png-4a20f46aeefdf4d123709f1eff298cb8.ctex"]
+source_file="res://assets/agents/shark/tubarao_ataque_diagonal.png"
+dest_files=["res://.godot/imported/tubarao_ataque_diagonal.png-d99cdfa8261fc52a7c632fef384c6316.ctex"]
 
 [params]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg3tiuc1oeiru"]
+
+[ext_resource type="Script" path="res://src/ui/StatsBar.cs" id="1_yqe1b"]
+
+[node name="StatsBar" type="Control"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_yqe1b")

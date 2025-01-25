@@ -71,6 +71,9 @@ animations = [{
 }]
 
 [node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("_animatedSprite2D") groups=["trash"]]
+texture_filter = 1
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.02
 continuous_cd = 1
 max_contacts_reported = 1
