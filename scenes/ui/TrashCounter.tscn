@@ -1,17 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ija4jvir5gt"]
+[gd_scene load_steps=3 format=3 uid="uid://4ija4jvir5gt"]
 
 [ext_resource type="Texture2D" uid="uid://d2o0mu5vsersf" path="res://assets/ui/contadordelixo.png" id="1_g3gyh"]
+[ext_resource type="FontFile" uid="uid://c5c87w1s5r76e" path="res://assets/ui/font/good_old_dos/Good Old DOS Distorted.ttf" id="2_5tpq0"]
 
 [node name="TrashCounter" type="Control"]
-custom_minimum_size = Vector2(50, 50)
+texture_filter = 1
+custom_minimum_size = Vector2(57, 51)
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -50.0
+offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -20,3 +22,19 @@ layout_mode = 0
 offset_right = 47.0
 offset_bottom = 41.0
 texture = ExtResource("1_g3gyh")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 23.0
+offset_right = 44.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5tpq0")
+theme_override_font_sizes/font_size = 18
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1

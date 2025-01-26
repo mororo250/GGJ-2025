@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://i1aaa3b8lbf"]
+[gd_scene load_steps=7 format=3 uid="uid://i1aaa3b8lbf"]
 
 [ext_resource type="Texture2D" uid="uid://dka8rhmihdf8r" path="res://assets/ui/barra.png" id="1_2clhr"]
 [ext_resource type="Script" path="res://src/ui/StatsBar.cs" id="2_321s6"]
 [ext_resource type="PackedScene" uid="uid://dfv5827j3cpnu" path="res://scenes/ui/BubbleUi.tscn" id="4_myyc1"]
 [ext_resource type="PackedScene" uid="uid://4ija4jvir5gt" path="res://scenes/ui/TrashCounter.tscn" id="5_sd8y8"]
 [ext_resource type="SpriteFrames" uid="uid://b3qw2ioy54t2f" path="res://assets/animation/bubble.tres" id="5_vysl2"]
+[ext_resource type="PackedScene" uid="uid://sdlxyetp8ij4" path="res://scenes/ui/Timer.tscn" id="6_cg0h6"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 70.0
@@ -30,17 +32,21 @@ offset_bottom = 8.0
 script = ExtResource("2_321s6")
 
 [node name="BubbleUi" parent="HealthBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 centered = false
 
 [node name="BubbleUi2" parent="HealthBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(18, -1)
 centered = false
 
 [node name="BubbleUi3" parent="HealthBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(36, -2)
 centered = false
 
 [node name="BubbleUi4" parent="HealthBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(54, -3)
 centered = false
 
@@ -54,23 +60,30 @@ offset_bottom = 33.0
 script = ExtResource("2_321s6")
 
 [node name="BubbleUi" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 sprite_frames = ExtResource("5_vysl2")
 centered = false
 
 [node name="BubbleUi2" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(18, -1)
 sprite_frames = ExtResource("5_vysl2")
 centered = false
 
 [node name="BubbleUi3" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(36, -2)
 sprite_frames = ExtResource("5_vysl2")
 centered = false
 
 [node name="BubbleUi4" parent="OxygenBar" instance=ExtResource("4_myyc1")]
+texture_filter = 1
 position = Vector2(54, -3)
 sprite_frames = ExtResource("5_vysl2")
 centered = false
 
 [node name="TrashCounter" parent="." instance=ExtResource("5_sd8y8")]
+layout_mode = 1
+
+[node name="Timer" parent="." instance=ExtResource("6_cg0h6")]
 layout_mode = 1

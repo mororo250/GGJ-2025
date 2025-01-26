@@ -1,0 +1,34 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c48eg5fh5424e"
+path="res://.godot/imported/Good Old DOS Smooth.ttf-1cf2a9938ddd7f3f3aae1583ce56d711.fontdata"
+
+[deps]
+
+source_file="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf"
+dest_files=["res://.godot/imported/Good Old DOS Smooth.ttf-1cf2a9938ddd7f3f3aae1583ce56d711.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
