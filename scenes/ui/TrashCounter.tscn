@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ija4jvir5gt"]
+[gd_scene load_steps=4 format=3 uid="uid://4ija4jvir5gt"]
 
+[ext_resource type="Script" path="res://src/ui/TrashCounter.cs" id="1_d0ryu"]
 [ext_resource type="Texture2D" uid="uid://d2o0mu5vsersf" path="res://assets/ui/contadordelixo.png" id="1_g3gyh"]
 [ext_resource type="FontFile" uid="uid://c5c87w1s5r76e" path="res://assets/ui/font/good_old_dos/Good Old DOS Distorted.ttf" id="2_5tpq0"]
 
-[node name="TrashCounter" type="Control"]
+[node name="TrashCounter" type="Control" node_paths=PackedStringArray("_label")]
 texture_filter = 1
 custom_minimum_size = Vector2(57, 51)
 layout_mode = 3
@@ -16,6 +17,8 @@ offset_left = -50.0
 offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("1_d0ryu")
+_label = NodePath("Label")
 
 [node name="TrashCounterSprite" type="TextureRect" parent="."]
 layout_mode = 0
@@ -34,7 +37,7 @@ offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5tpq0")
 theme_override_font_sizes/font_size = 18
-text = "3
+text = "0
 "
 horizontal_alignment = 1
 vertical_alignment = 1

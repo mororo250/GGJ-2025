@@ -46,6 +46,7 @@ public partial class StatsBar : Control
 			{
 				_bubblesList[i].Visible = true;
 				_bubblesList[i].Play("Bloom");
+				AudioManager.Instance.PlayGlobalSFX(AudioType.OxygenAlert, 0.3f);
 			}
 		}
 		else if (numberOfBubble < _currentNumberOfBubble)
@@ -53,6 +54,7 @@ public partial class StatsBar : Control
 			for (int i = (int)_currentNumberOfBubble - 1; i >= numberOfBubble; i--)
 			{
 				_bubblesList[i].Play("Pop");
+				AudioManager.Instance.PlayGlobalSFX(AudioType.OxygenAlert, 0.3f);
 			}
 		}
 		_currentNumberOfBubble = numberOfBubble;

@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using System;
+using Godot;
 using Godot.Collections;
 using trash;
 
@@ -8,13 +9,15 @@ public partial class Chain : Node2D
 {
 	[Export] private StaticBody2D     _chainTip;
 	[Export] private Area2D           _chainTipArea;
-	[Export] private Sprite2D         _chainSprite;
 	[Export] private AnimatedSprite2D _chainTipSprite;
+	[Export] private Sprite2D         _chainSprite;
 	[Export] private int              _chainMaxLength = 16;
 
 	private          float        _length = 0;
 	private          bool		  _isChaining;
 	private Trash _collectedTrash;
+	
+	private AudioStreamPlayer2D _soundPlayer;
 	
 	[Signal] public delegate void TrashCollectedEventHandler();
 
@@ -32,11 +35,6 @@ public partial class Chain : Node2D
 		}
 	}
 	
-	public override void _Ready()
-	{
-		_chainTipArea.Monitoring = true;
-	}
-	
 	public override void _PhysicsProcess(double delta)
 	{
 		if (_collectedTrash != null)
@@ -50,9 +48,6 @@ public partial class Chain : Node2D
 	{
 		if (_isChaining)
 		{
-			if(_length < 0.5f)
-				_chainTipSprite.Play("Opening");
-			
 			Length += 0.5f;
 			if (Length >= _chainMaxLength)
 			{
@@ -62,8 +57,10 @@ public partial class Chain : Node2D
 		else if (Length > 0)
 		{
 			Length -= 0.5f;
-			if (Length < 0)
+			if (Length <= 0)
+			{
 				Length = 0;
+			}
 		}
 	}
 
@@ -79,7 +76,6 @@ public partial class Chain : Node2D
 
 	public void OnChaining(bool isChaning)
 	{
-		_isChaining = isChaning;
 		if (!isChaning)
 		{
 			Array<Node2D> nodes = _chainTipArea.GetOverlappingBodies();
@@ -87,13 +83,41 @@ public partial class Chain : Node2D
 			{
 				if (node is Trash trash)
 				{
-					_collectedTrash        = trash;
-					_collectedTrash.Freeze = true;
-					return;
+					_collectedTrash = trash;
+					_collectedTrash.SetFreeze(true);
+					break;
 				}
 			}
-			
-			_chainTipSprite.Play("Closing");
+
+			if (_isChaining != isChaning)
+			{
+				if (_soundPlayer != null && GodotObject.IsInstanceValid(_soundPlayer))
+				{
+					_soundPlayer.Stop();
+					_soundPlayer.QueueFree();
+				}
+
+				_soundPlayer = AudioManager.Instance.PlaySFX(AudioType.Chain, GlobalPosition,
+					600, 0.6f);
+			}
 		}
+		else
+		{
+			if (_isChaining != isChaning)
+			{
+				_chainTipSprite.Play("Opening");
+				
+				if (_soundPlayer != null && IsInstanceValid(_soundPlayer))
+				{
+					_soundPlayer.Stop();
+					_soundPlayer.QueueFree();
+				}
+
+				_soundPlayer = AudioManager.Instance.PlaySFX(AudioType.Chain, GlobalPosition,
+					600, 0.6f);
+			}
+		}
+		
+		_isChaining = isChaning;
 	}
 }

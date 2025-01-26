@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bypghx7o3uwot"]
+[gd_scene load_steps=5 format=3 uid="uid://d3mv2s00j81oc"]
+
+[ext_resource type="Texture2D" uid="uid://dprasy8dhjcf0" path="res://assets/ui/telaInicialEstatica.png" id="1_2lnwf"]
+[ext_resource type="Script" path="res://src/main/MainMenu.cs" id="1_acsak"]
+[ext_resource type="Theme" uid="uid://dbwc5mf7xaxe8" path="res://assets/ui/PauseMenu.tres" id="2_rg1yq"]
+[ext_resource type="FontFile" uid="uid://c48eg5fh5424e" path="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf" id="4_8e535"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +12,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_acsak")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_2lnwf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 450)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -397.0
+offset_top = -300.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_rg1yq")
+
+[node name="GameTitle" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("2_rg1yq")
+theme_override_fonts/font = ExtResource("4_8e535")
+theme_override_font_sizes/font_size = 45
+text = "Neptune's Cleanup"
+vertical_alignment = 1
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_8e535")
+theme_override_font_sizes/font_size = 30
+text = "New Game
+"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(0.67069, 0.67069, 0.67069, 1)
+theme_override_fonts/font = ExtResource("4_8e535")
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+alignment = 0
+vertical_icon_alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="OnNewGameButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="OnQUitButtonPressed"]

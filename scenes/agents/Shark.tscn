@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/agents/Shark.cs" id="1_htt65"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmsf"]
-radius = 5.0
+radius = 2.0
 height = 36.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jihy0"]
@@ -28,8 +28,7 @@ shape = SubResource("CapsuleShape2D_ffmsf")
 [node name="Shark" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("1_epk5t")
-animation = &"Attack"
-frame_progress = 0.878063
+animation = &"new_animation"
 
 [node name="PatrolList" type="Node2D" parent="Shark"]
 

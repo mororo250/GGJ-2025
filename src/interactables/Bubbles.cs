@@ -19,12 +19,15 @@ public partial class Bubbles : RigidBody2D
 		_area2D.BodyEntered += OnCollision;
 		Freeze              =  true;
 		_animatedSprite2D.Play("Bloom");
+		AudioManager.Instance.PlaySFX(AudioType.BubbleBegin, GlobalPosition, 1000,0.3f);
 		_animatedSprite2D.AnimationFinished += OnAnimationFinished;
 	}
 
 	public void OnCollision(Node node)
 	{
 		_animatedSprite2D.Play("Pop");
+		AudioManager.Instance.PlaySFX(AudioType.BubbleBegin, GlobalPosition, 1000, 0.3f);
+
 		_bubbleState = BubbleState.Pop;
 		
 		if (node is Player player)
