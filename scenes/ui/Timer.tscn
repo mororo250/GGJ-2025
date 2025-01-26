@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://sdlxyetp8ij4"]
+
+[ext_resource type="Texture2D" uid="uid://b4m6iv7n2fkto" path="res://assets/ui/timer.png" id="1_m0a1m"]
+[ext_resource type="Script" path="res://src/ui/Timer.cs" id="1_pox3g"]
+[ext_resource type="FontFile" uid="uid://c5c87w1s5r76e" path="res://assets/ui/font/good_old_dos/Good Old DOS Distorted.ttf" id="2_gl0l5"]
+
+[node name="Timer" type="Control" node_paths=PackedStringArray("_label")]
+custom_minimum_size = Vector2(58, 42)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_pox3g")
+_label = NodePath("Label")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 48.0
+grow_vertical = 0
+texture = ExtResource("1_m0a1m")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gl0l5")
+theme_override_font_sizes/font_size = 10
+text = "10:10
+"
+horizontal_alignment = 1
+vertical_alignment = 1
