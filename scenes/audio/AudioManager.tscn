@@ -1,0 +1,25 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5f5tqepvtv4n"]
+
+[ext_resource type="Script" path="res://src/audio/AudioManager.cs" id="1_vbaso"]
+[ext_resource type="AudioStream" uid="uid://dxjbhfx7f1nxe" path="res://assets/audio/Música/BGM_Menu_Loop.wav" id="2_ff6yh"]
+[ext_resource type="AudioStream" uid="uid://bvy52nqnp4l2p" path="res://assets/audio/Música/BGM_Exploration_Loop.wav" id="3_c5jom"]
+[ext_resource type="AudioStream" uid="uid://dw0pwaxr500dr" path="res://assets/audio/Música/BGM_Danger_Loop.wav" id="4_qja1k"]
+[ext_resource type="AudioStream" uid="uid://bwlhh1f3by3ma" path="res://assets/audio/SFX/SFX_InGame_AirBubble.wav" id="5_1t350"]
+[ext_resource type="AudioStream" uid="uid://cdd1m2s3sxoq8" path="res://assets/audio/SFX/SFX_InGame_Damage.wav" id="6_f2328"]
+[ext_resource type="AudioStream" uid="uid://bkbci0de733rk" path="res://assets/audio/SFX/SFX_InGame_SubmarineEngine_Loop.wav" id="7_bxp1y"]
+[ext_resource type="AudioStream" uid="uid://c4ituxnko23dg" path="res://assets/audio/SFX/SFX_InGame_SubmarineClaps.wav" id="8_tgl6o"]
+[ext_resource type="AudioStream" uid="uid://csme6nknsj7go" path="res://assets/audio/SFX/SFX_UI_Clic.wav" id="9_hj3fl"]
+[ext_resource type="AudioStream" uid="uid://gf8kg5uy4g2d" path="res://assets/audio/SFX/SFX_UI_OxigenAlert.wav" id="10_hv6kp"]
+[ext_resource type="AudioStream" uid="uid://xxo428l6tkmx" path="res://assets/audio/SFX/SFX_InGame_Lost.wav" id="11_j4mxd"]
+[ext_resource type="AudioStream" uid="uid://76tmx5nwa36b" path="res://assets/audio/SFX/SFX_InGame_Victory.wav" id="12_orgck"]
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("_musicPlayer", "_sfxPool")]
+script = ExtResource("1_vbaso")
+_musicPlayer = NodePath("MusicPlayer")
+_sfxPool = NodePath("SfxPool")
+_audioResources = Array[AudioStreamWAV]([ExtResource("2_ff6yh"), ExtResource("3_c5jom"), ExtResource("4_qja1k"), ExtResource("5_1t350"), ExtResource("6_f2328"), ExtResource("7_bxp1y"), ExtResource("8_tgl6o"), ExtResource("9_hj3fl"), ExtResource("10_hv6kp"), ExtResource("11_j4mxd"), ExtResource("12_orgck")])
+
+[node name="SfxPool" type="Node2D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

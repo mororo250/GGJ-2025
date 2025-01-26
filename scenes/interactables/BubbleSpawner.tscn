@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjsubf44d6hqc"]
+
+[ext_resource type="Script" path="res://src/interactables/BubbleSpawner.cs" id="1_ovjb6"]
+[ext_resource type="PackedScene" uid="uid://bpk6u4cwx82wl" path="res://scenes/interactables/bubble.tscn" id="2_c4tex"]
+
+[node name="BubbleSpawner" type="Node2D"]
+script = ExtResource("1_ovjb6")
+_bubblePrefab = ExtResource("2_c4tex")

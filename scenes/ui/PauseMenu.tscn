@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bypghx7o3uwot"]
+
+[ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="1_mj56l"]
+[ext_resource type="Texture2D" uid="uid://brnhxmqnbljg8" path="res://assets/ui/menu pausa.png" id="1_oebru"]
+[ext_resource type="Theme" uid="uid://dbwc5mf7xaxe8" path="res://assets/ui/PauseMenu.tres" id="3_am5q0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxgjm"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 0.235294)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1fbk"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mj56l")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxgjm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -55.0
+offset_right = 74.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 55)
+texture = ExtResource("1_oebru")
+stretch_mode = 2
+
+[node name="Panel" type="VBoxContainer" parent="TextureRect"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.5
+offset_top = 25.0
+offset_right = 17.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="TextureRect/Panel"]
+layout_mode = 2
+theme = ExtResource("3_am5q0")
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b1fbk")
+text = "Continue"
+
+[node name="MainMenu" type="Button" parent="TextureRect/Panel"]
+layout_mode = 2
+theme = ExtResource("3_am5q0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b1fbk")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="TextureRect/Panel"]
+layout_mode = 2
+theme = ExtResource("3_am5q0")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b1fbk")
+text = "Quit"
+
+[connection signal="pressed" from="TextureRect/Panel/Continue" to="." method="OnResumeButtonPressed"]
+[connection signal="pressed" from="TextureRect/Panel/MainMenu" to="." method="OnMainMenuButtonPressed"]
+[connection signal="pressed" from="TextureRect/Panel/Quit" to="." method="OnQuitButtonPressed"]

@@ -24,13 +24,15 @@ public partial class Player : RigidBody2D
 
 	// Chain
 	[Export] private Chain _chain;
-	[Signal] public delegate void TrashCollectedEventHandler();
+	[Signal] public delegate void TrashCollectedEventHandler(uint trashCount);
+	[Signal] public delegate void GameOverEventHandler();
 
-	[Export] private uint _oxygenMaxValue = 4000;
+	[Export] private uint _oxygenMaxValue  = 4000;
 	[Export] private uint _healthMaxValue  = 1000;
 	[Export] private uint _oxygenDecayRate = 1;
-	public uint OxygenMaxValue => _oxygenMaxValue;
-	public uint HealthMaxValue  => _healthMaxValue;
+	[Export] private  uint _basicDamage = 250;
+	public           uint OxygenMaxValue => _oxygenMaxValue;
+	public           uint HealthMaxValue => _healthMaxValue;
 
 	// stats
 	private uint _trashCount;
@@ -39,32 +41,92 @@ public partial class Player : RigidBody2D
 	public  uint TrashCount => _trashCount;
 	public  uint Health     => _health;
 	public  uint Oxygen     => _oxygen;
+	
+	// flash animation
+	private         double _flashTime       = 1;
+	[Export]private double _flashDuration   = 0.1;
+	private         uint _flashCounter    = 0;
+	[Export]private uint _numberOfFlashes = 5;
+	private         bool  _flash           = false;
+	
+	AudioStreamPlayer _soundPlayer;
 
 	public void RecoverOxygen()
 	{
 		_oxygen = _oxygenMaxValue;
 	}
 	
-	public override void _Ready()
-	{
-		_chain.TrashCollected += OnTrashColected;
-		_oxygen =  _oxygenMaxValue;
-		_health = _healthMaxValue;
-	}
-	
 	public void TakeDamage(uint damage)
 	{
 		_health -= damage;
+		_flash = true;
+		AudioManager.Instance.PlaySFX(AudioType.Damage, GlobalPosition, 200, 0.35f);
 	}
 	
+	public override void _Ready()
+	{
+		_chain.TrashCollected += OnTrashColected;
+		Init();
+	}
+
+	private void Init()
+	{
+		_soundPlayer     = AudioManager.Instance.PlayGlobalSFXLoop(AudioType.Submarine, 0.3f);
+		_oxygen          = _oxygenMaxValue;
+		_health          = _healthMaxValue;
+	}
+
+	public override void _Process(double delta)
+	{
+		Flash(delta);
+	}
+
+	private void Flash(double delta)
+	{
+		if (_flash)
+		{
+			_flashTime += delta;
+			if (_flashTime >= _flashDuration)
+			{
+				if (_flashCounter >= _numberOfFlashes)
+				{
+					_flashTime		   = 1;
+					_flashCounter      = 0;
+					_flash             = false;
+					_sprite2D.Modulate = Colors.White;
+					return;
+				}
+				
+				_flashTime = 0;
+				_flashCounter++;
+				_sprite2D.Modulate = _sprite2D.Modulate == Colors.White ? Colors.Red : Colors.White;
+			}
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
+		if (_movementDirection == MovementDirection.None)
+		{
+			if (_soundPlayer.Playing)
+				_soundPlayer.Stop();
+		}
+		else
+		{
+			if (!_soundPlayer.Playing)
+				_soundPlayer.Play();
+		}
+		
+		if (delta == 0)
+			return;
+		
 		UpdateMovement();
 		UpdateOxygen();
 		
-		if (_health <= 0)
+		if (_health == 0)
 		{
-			// Game over screen
+			_soundPlayer.Stop();
+			EmitSignal(SignalName.GameOver);
 		}
 	}
 
@@ -98,12 +160,9 @@ public partial class Player : RigidBody2D
 	{
 		if (_oxygen <= 0)
 		{
-			_health -= _oxygenDecayRate;
+			TakeDamage(_oxygenDecayRate);
 			if (_health == 0)
-			{
-				_health = 1;
-				// Game over screen
-			}
+				return;
 
 			_oxygen = 0;
 		}
@@ -115,7 +174,6 @@ public partial class Player : RigidBody2D
 	{
 		if (@event is InputEventKey keyEvent)
 		{
-
 			if (keyEvent.IsPressed())
 			{
 				switch (keyEvent.Keycode)
@@ -164,6 +222,15 @@ public partial class Player : RigidBody2D
 	public void OnTrashColected()
 	{
 		_trashCount++;
-		EmitSignal(SignalName.TrashCollected);
+		EmitSignal(SignalName.TrashCollected, _trashCount);
+	}
+
+	private void HandleCollisisonAgainstTerrain(Node body)
+	{
+		if (body is TileMapLayer tileMap)
+		{
+			uint damage = (uint)(LinearVelocity.Length() / 80 * _basicDamage);
+			TakeDamage(damage);
+		}
 	}
 }

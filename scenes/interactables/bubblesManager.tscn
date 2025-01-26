@@ -1,8 +1,3 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt2s6rt75on1a"]
-
-[ext_resource type="Script" path="res://src/interactables/BubblesManager.cs" id="1_jkswk"]
-[ext_resource type="PackedScene" uid="uid://bpk6u4cwx82wl" path="res://scenes/interactables/bubble.tscn" id="2_107yv"]
+[gd_scene format=3 uid="uid://dt2s6rt75on1a"]
 
 [node name="BubblesManager" type="Node2D"]
-script = ExtResource("1_jkswk")
-_bubblePrefab = ExtResource("2_107yv")

@@ -27,15 +27,4 @@ public partial class BubblesManager : Node
 			}
 		}
 	}
-
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event is InputEventMouse eventMouse)
-		{
-			if (eventMouse.ButtonMask == MouseButtonMask.Left)
-			{
-				CreateBubble(GetViewport().GetCamera2D().GetGlobalMousePosition());
-			}
-		}
-	}
 }

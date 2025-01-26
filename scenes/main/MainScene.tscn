@@ -1,98 +1,34 @@
-[gd_scene load_steps=14 format=4 uid="uid://qj48yi0d7s3"]
+[gd_scene load_steps=8 format=3 uid="uid://qj48yi0d7s3"]
 
+[ext_resource type="PackedScene" uid="uid://dlicwcbcwvfgi" path="res://scenes/main/Level1.tscn" id="1_2ljru"]
 [ext_resource type="PackedScene" uid="uid://lfhk5f000cdo" path="res://scenes/camera/camera2D.tscn" id="1_dgmxc"]
+[ext_resource type="Script" path="res://src/main/MainScene.cs" id="1_kkplw"]
 [ext_resource type="PackedScene" uid="uid://cx0ilp71jq5ck" path="res://scenes/agents/player.tscn" id="1_y1hli"]
-[ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_y1og6"]
-[ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="1_ysgaf"]
-[ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="3_tkwfr"]
-[ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="4_i28r1"]
-[ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="5_esu7m"]
-[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="6_t2u41"]
-[ext_resource type="Script" path="res://src/agents/PatrolList.cs" id="7_bx0ys"]
+[ext_resource type="PackedScene" uid="uid://feih5fcntmg" path="res://scenes/main/Level2.tscn" id="3_y6q5d"]
 [ext_resource type="PackedScene" uid="uid://i1aaa3b8lbf" path="res://scenes/ui/hud.tscn" id="8_0gc2v"]
-[ext_resource type="PackedScene" uid="uid://clsjaw8mnh6y8" path="res://scenes/agents/Shark.tscn" id="8_700m6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ghdsb"]
-radius = 5.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2pnlp"]
 bounce = 1.2
 
-[node name="Root" type="Node"]
+[node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player")]
+script = ExtResource("1_kkplw")
+Level1 = ExtResource("1_2ljru")
+Level2 = ExtResource("3_y6q5d")
+_map = NodePath("Game/Map")
+_player = NodePath("Game/Player")
 
 [node name="Game" type="Node2D" parent="."]
+texture_filter = 1
 
-[node name="ParallaxBackgorund" parent="Game" instance=ExtResource("1_y1og6")]
-
-[node name="Map" parent="Game" instance=ExtResource("1_ysgaf")]
-
-[node name="TileMapLayer" parent="Game/Map" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAAkAAAAAAAEAAAAAAAoAAAAAAAEAAAAAAAsAAAAAAAEAAAAAAAwAAAAAAAEAAAAAAA0AAAAAAAEAAAAAAA4AAAAAAAEAAAAAAA8AAAAAAAEAAAAAABAAAAAAAAEAAAAAABEAAAAAAAEAAAAAABIAAAAAAAEAAAAAABMAAAAAAAEAAAAAABQAAAAAAAEAAAAAABUAAAAAAAEAAAAAABYAAAAAAAEAAAAAABcAAAAAAAEAAAAAABgAAAAAAAEAAAAAABkAAAAAAAEAAAAAABoAAAAAAAEAAAAAABsAAAAAAAEAAAAAABwAAAAAAAEAAAAAAB0AAAAAAAEAAAAAAB4AAAAAAAEAAAAAAB8AAAAAAAEAAAAAACAAAAAAAAEAAAAAACEAAAAAAAEAAAAAACIAAAAAAAEAAAAAACMAAAAAAAEAAAAAACQAAAAAAAEAAAAAACUAAAAAAAEAAAAAACYAAAAAAAEAAAAAACcAAAAAAAEAAAAAACgAAAAAAAEAAAAAACkAAAAAAAEAAAAAACoAAAAAAAEAAAAAACsAAAAAAAEAAAAAACwAAAAAAAEAAAAAAC0AAAAAAAIAAAC3AC0AAAAEAAIAAAC3ACwAAAAEAAEAAAC3ACsAAAAEAAEAAAC3ACoAAAAEAAEAAAC3ACkAAAAEAAEAAAC3ACgAAAAEAAEAAAC3ACcAAAAEAAEAAAC3ACYAAAAEAAEAAAC3ACUAAAAEAAEAAAC3ACQAAAAEAAEAAAC3ACMAAAAEAAEAAAC3ACIAAAAEAAEAAAC3ACEAAAAEAAEAAAC3ACAAAAAEAAEAAAC3AB8AAAAEAAEAAAC3AB4AAAAEAAEAAAC3AB0AAAAEAAEAAAC3ABwAAAAEAAEAAAC3ABsAAAAEAAEAAAC3ABoAAAAEAAEAAAC3ABkAAAAEAAEAAAC3ABgAAAAEAAEAAAC3ABcAAAAEAAEAAAC3ABYAAAAEAAEAAAC3ABUAAAAEAAEAAAC3ABQAAAAEAAEAAAC3ABMAAAAEAAEAAAC3ABIAAAAEAAEAAAC3ABEAAAAEAAEAAAC3ABAAAAAEAAEAAAC3AA8AAAAEAAEAAAC3AA4AAAAEAAEAAAC3AA0AAAAEAAEAAAC3AAwAAAAEAAEAAAC3AAsAAAAEAAEAAAC3AAoAAAAEAAEAAAC3AAkAAAAEAAEAAAC3AAgAAAAEAAEAAAC3AAcAAAAEAAEAAAC3AAYAAAAEAAEAAAC3AAUAAAAEAAEAAAC3AAQAAAAEAAEAAAC3AAMAAAAEAAEAAAC3AAIAAAAEAAEAAAC3AAEAAAAEAAEAAAC3AAAAAAAEAAEAAAABAC0AAAABAAIAAAACAC0AAAACAAIAAAADAC0AAAADAAIAAAAEAC0AAAADAAIAAAAFAC0AAAADAAIAAAAGAC0AAAACAAIAAAAHAC0AAAADAAIAAAAIAC0AAAADAAIAAAAJAC0AAAADAAIAAAAKAC0AAAADAAIAAAALAC0AAAADAAIAAAAMAC0AAAADAAIAAAANAC0AAAADAAIAAAAOAC0AAAADAAIAAAAPAC0AAAADAAIAAAAQAC0AAAADAAIAAAARAC0AAAADAAIAAAASAC0AAAADAAIAAAATAC0AAAADAAIAAAAUAC0AAAADAAIAAAAVAC0AAAADAAIAAAAWAC0AAAADAAIAAAAXAC0AAAADAAIAAAAYAC0AAAADAAIAAAAZAC0AAAADAAIAAAAaAC0AAAADAAIAAAAbAC0AAAADAAIAAAAcAC0AAAADAAIAAAAdAC0AAAADAAIAAAAeAC0AAAADAAIAAAAfAC0AAAADAAIAAAAgAC0AAAADAAIAAAAhAC0AAAADAAIAAAAiAC0AAAADAAIAAAAjAC0AAAADAAIAAAAkAC0AAAADAAIAAAAlAC0AAAADAAIAAAAmAC0AAAADAAIAAAAnAC0AAAADAAIAAAAoAC0AAAADAAIAAAApAC0AAAADAAIAAAAqAC0AAAADAAIAAAArAC0AAAADAAIAAAAsAC0AAAADAAIAAAAtAC0AAAADAAIAAAAuAC0AAAADAAIAAAAvAC0AAAADAAIAAAAwAC0AAAADAAIAAAAxAC0AAAADAAIAAAAyAC0AAAADAAIAAAAzAC0AAAADAAIAAAA0AC0AAAADAAIAAAA1AC0AAAADAAIAAAA2AC0AAAADAAIAAAA3AC0AAAADAAIAAAA4AC0AAAADAAIAAAA5AC0AAAADAAIAAAA6AC0AAAADAAIAAAA7AC0AAAADAAIAAAA8AC0AAAADAAIAAAA9AC0AAAADAAIAAAA+AC0AAAADAAIAAAA/AC0AAAADAAIAAABAAC0AAAADAAIAAABBAC0AAAADAAIAAABCAC0AAAADAAIAAABDAC0AAAADAAIAAABEAC0AAAADAAIAAABFAC0AAAADAAIAAABGAC0AAAADAAIAAABHAC0AAAADAAIAAABIAC0AAAADAAIAAABJAC0AAAADAAIAAABKAC0AAAADAAIAAABLAC0AAAADAAIAAABMAC0AAAADAAIAAABNAC0AAAADAAIAAABOAC0AAAADAAIAAABPAC0AAAADAAIAAABQAC0AAAADAAIAAABRAC0AAAADAAIAAABSAC0AAAADAAIAAABTAC0AAAADAAIAAABUAC0AAAADAAIAAABVAC0AAAADAAIAAABWAC0AAAADAAIAAABXAC0AAAADAAIAAABYAC0AAAADAAIAAABZAC0AAAADAAIAAABaAC0AAAADAAIAAABbAC0AAAADAAIAAABcAC0AAAADAAIAAABdAC0AAAADAAIAAABeAC0AAAADAAIAAABfAC0AAAADAAIAAABgAC0AAAADAAIAAABhAC0AAAADAAIAAABiAC0AAAADAAIAAABjAC0AAAADAAIAAABkAC0AAAADAAIAAABlAC0AAAADAAIAAABmAC0AAAADAAIAAABnAC0AAAADAAIAAABoAC0AAAADAAIAAABpAC0AAAADAAIAAABqAC0AAAADAAIAAABrAC0AAAADAAIAAABsAC0AAAADAAIAAABtAC0AAAADAAIAAABuAC0AAAADAAIAAABvAC0AAAADAAIAAABwAC0AAAADAAIAAABxAC0AAAADAAIAAAByAC0AAAADAAIAAABzAC0AAAADAAIAAAB0AC0AAAADAAIAAAB1AC0AAAADAAIAAAB2AC0AAAADAAIAAAB3AC0AAAADAAIAAAB4AC0AAAADAAIAAAB5AC0AAAADAAIAAAB6AC0AAAADAAIAAAB7AC0AAAADAAIAAAB8AC0AAAADAAIAAAB9AC0AAAADAAIAAAB+AC0AAAADAAIAAAB/AC0AAAADAAIAAACAAC0AAAADAAIAAACBAC0AAAADAAIAAACCAC0AAAADAAIAAACDAC0AAAADAAIAAACEAC0AAAADAAIAAACFAC0AAAADAAIAAACGAC0AAAADAAIAAACHAC0AAAADAAIAAACIAC0AAAADAAIAAACJAC0AAAADAAIAAACKAC0AAAADAAIAAACLAC0AAAADAAIAAACMAC0AAAADAAIAAACNAC0AAAADAAIAAACOAC0AAAADAAIAAACPAC0AAAADAAIAAACQAC0AAAADAAIAAACRAC0AAAADAAIAAACSAC0AAAADAAIAAACTAC0AAAADAAIAAACUAC0AAAADAAIAAACVAC0AAAADAAIAAACWAC0AAAADAAIAAACXAC0AAAADAAIAAACYAC0AAAADAAIAAACZAC0AAAADAAIAAACaAC0AAAADAAIAAACbAC0AAAADAAIAAACcAC0AAAADAAIAAACdAC0AAAADAAIAAACeAC0AAAADAAIAAACfAC0AAAADAAIAAACgAC0AAAADAAIAAAChAC0AAAADAAIAAACiAC0AAAADAAIAAACjAC0AAAADAAIAAACkAC0AAAADAAIAAAClAC0AAAADAAIAAACmAC0AAAADAAIAAACnAC0AAAADAAIAAACoAC0AAAADAAIAAACpAC0AAAADAAIAAACqAC0AAAADAAIAAACrAC0AAAADAAIAAACsAC0AAAADAAIAAACtAC0AAAADAAIAAACuAC0AAAADAAIAAACvAC0AAAADAAIAAACwAC0AAAADAAIAAACxAC0AAAADAAIAAACyAC0AAAADAAIAAACzAC0AAAADAAIAAAC0AC0AAAADAAIAAAC1AC0AAAADAAIAAAC2AC0AAAADAAIAAAA=")
-
-[node name="SharkPatrolList" type="Node2D" parent="Game/Map"]
-position = Vector2(240, 207)
-script = ExtResource("7_bx0ys")
-
-[node name="Point1" type="Area2D" parent="Game/Map/SharkPatrolList"]
-position = Vector2(150, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Map/SharkPatrolList/Point1"]
-shape = SubResource("CircleShape2D_ghdsb")
-
-[node name="Point2" type="Area2D" parent="Game/Map/SharkPatrolList"]
-position = Vector2(-150, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Game/Map/SharkPatrolList/Point2"]
-shape = SubResource("CircleShape2D_ghdsb")
-
-[node name="Point3" type="Area2D" parent="Game/Map/SharkPatrolList"]
-position = Vector2(-6, -86)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Game/Map/SharkPatrolList/Point3"]
-shape = SubResource("CircleShape2D_ghdsb")
+[node name="Map" type="Node2D" parent="Game"]
 
 [node name="Player" parent="Game" instance=ExtResource("1_y1hli")]
-position = Vector2(240, 135)
+position = Vector2(184, 111)
 physics_material_override = SubResource("PhysicsMaterial_2pnlp")
 linear_damp = 0.5
 
 [node name="Camera2d" parent="Game/Player" instance=ExtResource("1_dgmxc")]
 limit_bottom = 720
-
-[node name="Penguin" parent="Game" instance=ExtResource("6_t2u41")]
-position = Vector2(140, 705)
-
-[node name="Enemies" type="Node2D" parent="Game"]
-
-[node name="SharkBodyController" parent="Game/Enemies" node_paths=PackedStringArray("_player", "_patrolList") instance=ExtResource("8_700m6")]
-position = Vector2(239, 204)
-_player = NodePath("../../Player")
-_patrolList = NodePath("../../Map/SharkPatrolList")
-
-[node name="TrashManager" parent="Game" instance=ExtResource("3_tkwfr")]
-
-[node name="Trash1" parent="Game/TrashManager" instance=ExtResource("4_i28r1")]
-position = Vector2(128, 1693)
-
-[node name="Trash2" parent="Game/TrashManager" instance=ExtResource("4_i28r1")]
-position = Vector2(559, 1685)
-
-[node name="Trash3" parent="Game/TrashManager" instance=ExtResource("4_i28r1")]
-position = Vector2(1286, 1685)
-
-[node name="Trash4" parent="Game/TrashManager" instance=ExtResource("4_i28r1")]
-position = Vector2(1813, 1685)
-
-[node name="Trash5" parent="Game/TrashManager" instance=ExtResource("4_i28r1")]
-position = Vector2(2286, 1685)
-
-[node name="BubblesManager" parent="Game" instance=ExtResource("5_esu7m")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -106,7 +42,6 @@ _stats = 1
 [node name="OxygenBar" parent="CanvasLayer/Hud" index="2" node_paths=PackedStringArray("_player")]
 _player = NodePath("../../../Game/Player")
 
-[connection signal="PatrolPointed" from="Game/Map/SharkPatrolList" to="Game/Enemies/SharkBodyController" method="OnPatrolPointBodyEntered"]
+[connection signal="TrashCollected" from="Game/Player" to="CanvasLayer/Hud/TrashCounter" method="SetCounter"]
 
-[editable path="Game/Map"]
 [editable path="CanvasLayer/Hud"]

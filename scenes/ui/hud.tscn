@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://i1aaa3b8lbf"]
+[gd_scene load_steps=8 format=3 uid="uid://i1aaa3b8lbf"]
 
 [ext_resource type="Texture2D" uid="uid://dka8rhmihdf8r" path="res://assets/ui/barra.png" id="1_2clhr"]
 [ext_resource type="Script" path="res://src/ui/StatsBar.cs" id="2_321s6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4ija4jvir5gt" path="res://scenes/ui/TrashCounter.tscn" id="5_sd8y8"]
 [ext_resource type="SpriteFrames" uid="uid://b3qw2ioy54t2f" path="res://assets/animation/bubble.tres" id="5_vysl2"]
 [ext_resource type="PackedScene" uid="uid://sdlxyetp8ij4" path="res://scenes/ui/Timer.tscn" id="6_cg0h6"]
+[ext_resource type="PackedScene" uid="uid://bypghx7o3uwot" path="res://scenes/ui/PauseMenu.tscn" id="7_3vb8v"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -87,3 +88,10 @@ layout_mode = 1
 
 [node name="Timer" parent="." instance=ExtResource("6_cg0h6")]
 layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_3vb8v")]
+visible = false
+layout_mode = 1
+
+[connection signal="PauseMenuOpen" from="PauseMenu" to="Timer" method="OnPauseButtonPressed"]
+[connection signal="ResumeButtonPressed" from="PauseMenu" to="Timer" method="OnResumeButtonPressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dai7tj8cxbx7l"]
+
+[ext_resource type="SpriteFrames" uid="uid://8o2yi3kx4xu5" path="res://assets/animation/Shark.tres" id="1_8elni"]
+[ext_resource type="Script" path="res://src/agents/Stingray.cs" id="1_cexch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmsf"]
+radius = 2.0
+height = 36.0
+
+[node name="Stingray" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_cexch")
+_animatedSprite = NodePath("StingGray")
+
+[node name="StingGray" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_8elni")
+animation = &"new_animation"
+frame_progress = 0.867769
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 536870913
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 5)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ffmsf")
+
+[connection signal="area_entered" from="HitBox" to="." method="OnPatrolPointBodyEntered"]
+[connection signal="body_entered" from="HitBox" to="." method="OnBodyEntered"]
