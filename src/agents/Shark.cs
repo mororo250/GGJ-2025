@@ -16,10 +16,10 @@ public partial class Shark : CharacterBody2D
 	private          List<Area2D> _patrolPath = new();
 	
 	[Export] private float  _swiminSpeed  = 50; // pixels per second
-	[Export] private float  _attackSpeed  = 80; //  pixels per seconds
-	[Export] private uint   _cooldownTime = 0;  // frames
+	[Export] private float  _attackSpeed  = 65; //  pixels per seconds
+	[Export] private uint   _cooldownTime = 90;  // frames
 	[Export] private uint   _attackDamage = 250; 
-	[Export] private uint   _attackRange  = 300; // pixels
+	[Export] private uint   _attackRange  = 450; // pixels
 	private          Player _player;
 	private          uint   _currentCooldownTime = 0; // frames
 	
@@ -78,10 +78,9 @@ public partial class Shark : CharacterBody2D
 	{
 		Velocity = Vector2.Zero;
 		_currentCooldownTime--;
-		if (_cooldownTime == 0)
+		if (_currentCooldownTime == 0)
 		{
 			_state = SharkState.Swimming;
-			_animatedSprite.Play("Swim");
 		}
 	}
 
@@ -171,8 +170,9 @@ public partial class Shark : CharacterBody2D
 		{
 			player.TakeDamage(_attackDamage);
 			player.ApplyImpulse(Velocity * 2);
-			_state               = SharkState.Cooldown;
+			_state = SharkState.Cooldown;
 			_currentCooldownTime = _cooldownTime;
+			_animatedSprite.Play("Swim");
 		}
 	}
 }

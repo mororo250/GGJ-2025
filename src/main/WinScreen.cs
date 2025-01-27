@@ -9,6 +9,7 @@ public partial class WinScreen : Control
 	public override void _Ready()
 	{
 		_animatedSprite2D.AnimationFinished += OnAnimationFinished;
+		_animatedSprite2D.Play(_animatedSprite2D.Animation);
 	}
 
 	public void OnVisibilityChanged()
@@ -18,13 +19,11 @@ public partial class WinScreen : Control
 			_gameNode.ProcessMode = Node.ProcessModeEnum.Disabled;
 			_animatedSprite2D.Play(_animatedSprite2D.Animation);
 
-			GetWindow().ContentScaleFactor = 6;
 			AudioManager.Instance.PlayGlobalSFX(AudioType.GameOver, 0.6f);
 		}
 		else
 		{
-			_gameNode.ProcessMode = Node.ProcessModeEnum.Inherit;
-			GetWindow().ContentScaleFactor = 4;
+			_gameNode.ProcessMode          = Node.ProcessModeEnum.Inherit;
 		}
 	}
 

@@ -6,6 +6,11 @@ public partial class BubbleSpawner : AnimatedSprite2D
 	[Export] private double _timeToSpawn = 5;
 	private double _timerAccumulator = 0;
 
+	public override void _Ready()
+	{
+		Play("Open");
+	}
+
 	public override void _Process(double delta)
 	{
 		_timerAccumulator += delta;

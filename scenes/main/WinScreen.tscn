@@ -227,7 +227,9 @@ _animatedSprite2D = NodePath("AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_4cgmq")
 animation = &"new_animation"
-frame_progress = 0.118975
+frame = 28
+frame_progress = 1.0
 centered = false

@@ -23,11 +23,9 @@ public partial class GameOver : Control
 		{
 			_gameNode.ProcessMode = Node.ProcessModeEnum.Disabled;
 			AudioManager.Instance.PlayGlobalSFX(AudioType.GameOver, 0.6f);
-			GetViewport().GetWindow().ContentScaleFactor = 6;
 		}
 		else
 		{
-			GetViewport().GetWindow().ContentScaleFactor = 4;
 			_gameNode.ProcessMode                        = Node.ProcessModeEnum.Inherit;
 		}
 	}

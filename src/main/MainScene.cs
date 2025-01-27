@@ -15,8 +15,6 @@ public partial class MainScene : Node
 	
 	public override void _EnterTree()
 	{
-		GetWindow().ContentScaleFactor = 4;
-
 		_currentLevel          = Level1.Instantiate() as Level;
 		_player.GlobalPosition = _currentLevel.PlayerPosition;
 		_map.AddChild(_currentLevel);

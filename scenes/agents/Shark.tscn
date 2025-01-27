@@ -7,7 +7,7 @@
 radius = 8.0
 height = 36.0
 
-[node name="SharkBodyController" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
+[node name="Shark" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
 physics_interpolation_mode = 2
 collision_layer = 3
 collision_mask = 3
@@ -16,24 +16,19 @@ wall_min_slide_angle = 0.0
 platform_on_leave = 2
 platform_floor_layers = 0
 script = ExtResource("1_htt65")
-_animatedSprite = NodePath("Shark")
+_animatedSprite = NodePath("SharkAnimation")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 2)
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_ffmsf")
-
-[node name="Shark" type="AnimatedSprite2D" parent="."]
+[node name="SharkAnimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("1_epk5t")
-animation = &"Swmin"
+animation = &"Swim"
 
 [node name="SharkVision" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="VisionShape" type="CollisionPolygon2D" parent="SharkVision"]
 position = Vector2(22, 2)
-polygon = PackedVector2Array(0, -10, 0, 10, 150, 50, 150, -50)
+polygon = PackedVector2Array(-20, -15, -20, 15, 150, 100, 150, -100)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dlicwcbcwvfgi"]
+[gd_scene load_steps=17 format=4 uid="uid://dlicwcbcwvfgi"]
 
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_4sbki"]
 [ext_resource type="Script" path="res://src/main/Level.cs" id="1_ssoje"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="6_8kudv"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_h30g6"]
 [ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="7_4dgi5"]
+[ext_resource type="Texture2D" uid="uid://5egyqg5swrdm" path="res://assets/tutorial/e.png" id="10_iwb30"]
+[ext_resource type="FontFile" uid="uid://c48eg5fh5424e" path="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf" id="11_p7x2n"]
+[ext_resource type="Texture2D" uid="uid://m1ncpesok1rl" path="res://assets/tutorial/espaco.png" id="12_d4erq"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oju4i"]
 b = Vector2(4200, 0)
@@ -16,7 +19,14 @@ b = Vector2(4200, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptk46"]
 radius = 5.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_fbnj4"]
+viewport_path = NodePath("Tutorial/Penguin/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4dp5"]
+viewport_path = NodePath("Tutorial/Trash/SubViewport")
+
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("_playerPos")]
+texture_filter = 1
 script = ExtResource("1_ssoje")
 _playerPos = NodePath("PlayerPos")
 _victoryCondition = 12
@@ -285,6 +295,92 @@ position = Vector2(2970, 616)
 position = Vector2(3384, 317)
 
 [node name="Tutorial" type="Node2D" parent="."]
+
+[node name="Penguin" type="Node2D" parent="Tutorial"]
+position = Vector2(3004, 73)
+
+[node name="TutorialText" type="Sprite2D" parent="Tutorial/Penguin"]
+position = Vector2(10, 31)
+texture = SubResource("ViewportTexture_fbnj4")
+
+[node name="E" type="Sprite2D" parent="Tutorial/Penguin"]
+position = Vector2(51, 9)
+texture = ExtResource("10_iwb30")
+
+[node name="SubViewport" type="SubViewport" parent="Tutorial/Penguin"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(52, 12)
+
+[node name="Control" type="Control" parent="Tutorial/Penguin/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Penguin/SubViewport/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.435294, 0.435294, 0.435294, 0)
+theme_override_fonts/font = ExtResource("11_p7x2n")
+theme_override_font_sizes/font_size = 12
+text = "SAVE ME"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Trash" type="Node2D" parent="Tutorial"]
+position = Vector2(1139, 204)
+
+[node name="TutorialText" type="Sprite2D" parent="Tutorial/Trash"]
+position = Vector2(0, -5)
+texture = SubResource("ViewportTexture_g4dp5")
+
+[node name="SpaceBar" type="Sprite2D" parent="Tutorial/Trash"]
+position = Vector2(2, 22)
+texture = ExtResource("12_d4erq")
+
+[node name="SubViewport" type="SubViewport" parent="Tutorial/Trash"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(96, 36)
+
+[node name="Control" type="Control" parent="Tutorial/Trash/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Trash/SubViewport/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.435294, 0.435294, 0.435294, 0)
+theme_override_fonts/font = ExtResource("11_p7x2n")
+theme_override_font_sizes/font_size = 14
+text = "Help clean the ocean!"
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="SpawnTrash" from="Agents/Penguin" to="TrashManager" method="SpawnTrash"]
 [connection signal="SpawnTrash" from="Agents/Penguin2" to="TrashManager" method="SpawnTrash"]

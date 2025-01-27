@@ -37,6 +37,7 @@ limit_bottom = 720
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("8_0gc2v")]
+texture_filter = 1
 mouse_filter = 2
 
 [node name="HealthBar" parent="CanvasLayer/Hud" index="1" node_paths=PackedStringArray("_player")]
