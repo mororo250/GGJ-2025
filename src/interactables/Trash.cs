@@ -1,26 +1,20 @@
+using System;
 using Godot;
+using Godot.Collections;
 
 namespace trash;
 
 public partial class Trash : RigidBody2D
 {
 	[Export] private AnimatedSprite2D _animatedSprite2D;
-	[Export] private string           _animation;
 	
-	public string Animation
-	{
-		get => _animation;
-		set
-		{
-			_animation = value;
-			if (!Freeze)
-				_animatedSprite2D.Play(_animation);
-		}
-	}
 	
 	public override void _Ready()
 	{
-		_animatedSprite2D.Play(_animatedSprite2D.Animation);
+		SpriteFrames spriteFrames = _animatedSprite2D.GetSpriteFrames();
+		string[] animations = spriteFrames.GetAnimationNames();
+		int randomAnimation = new Random().Next(0, animations.Length - 1);
+		_animatedSprite2D.Play(animations[randomAnimation]);
 	}
 	
 	public void SetFreeze(bool freeze)
@@ -29,7 +23,7 @@ public partial class Trash : RigidBody2D
 		if (!freeze)
 			_animatedSprite2D.Stop();
 		else
-			_animatedSprite2D.Play(_animation);
+			_animatedSprite2D.Play(_animatedSprite2D.Animation);
 		
 	}
 }

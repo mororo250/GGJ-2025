@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://dlicwcbcwvfgi"]
+[gd_scene load_steps=13 format=4 uid="uid://dlicwcbcwvfgi"]
 
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_4sbki"]
-[ext_resource type="Script" path="res://scenes/main/Level.cs" id="1_ssoje"]
+[ext_resource type="Script" path="res://src/main/Level.cs" id="1_ssoje"]
 [ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="4_0e4ms"]
 [ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="5_1768f"]
 [ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="5_ra0km"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="6_8kudv"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_h30g6"]
 [ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="7_4dgi5"]
+[ext_resource type="PackedScene" uid="uid://rgerf73r5d1i" path="res://scenes/tutorial/tutorial.tscn" id="10_0ifkg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oju4i"]
 b = Vector2(4200, 0)
@@ -17,6 +18,7 @@ b = Vector2(4200, 0)
 radius = 5.0
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("_playerPos")]
+texture_filter = 1
 script = ExtResource("1_ssoje")
 _playerPos = NodePath("PlayerPos")
 _victoryCondition = 12
@@ -50,110 +52,186 @@ position = Vector2(3327, 114)
 
 [node name="PatrolPoints" type="Node2D" parent="Enemies"]
 
-[node name="Stringay1PatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+[node name="StringayPatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(2030, 335)
 
-[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints"]
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(-102, 0)
 collision_layer = 536870912
 collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints/Point1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints"]
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(110, -204)
 collision_layer = 536870912
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints/Point2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point3" type="Area2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints"]
+[node name="Point3" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(430, -169)
 collision_layer = 536870912
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay1PatrolPoints/Point3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point3"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Stringay2PatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+[node name="StringayPatrolPoints2" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(3453, 119)
 
-[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/Stringay2PatrolPoints"]
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2"]
 position = Vector2(-86, 20)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay2PatrolPoints/Point1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/Stringay2PatrolPoints"]
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2"]
 position = Vector2(180, -65)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay2PatrolPoints/Point2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Stringay3PatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+[node name="StringayPatrolPoints3" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(2808, 270)
 
-[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/Stringay3PatrolPoints"]
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3"]
 position = Vector2(-139, 30)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay3PatrolPoints/Point1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/Stringay3PatrolPoints"]
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3"]
 position = Vector2(213, -75)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay3PatrolPoints/Point2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Stringay4PatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+[node name="StringayPatrolPoints4" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(3141, 539)
 
-[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/Stringay4PatrolPoints"]
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
 position = Vector2(-237, -20)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay4PatrolPoints/Point1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/Stringay4PatrolPoints"]
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
 position = Vector2(672, -65)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay4PatrolPoints/Point2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Stringay5PatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+[node name="StringayPatrolPoints5" type="Node2D" parent="Enemies/PatrolPoints"]
 position = Vector2(3174, 602)
 
-[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/Stringay5PatrolPoints"]
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5"]
 position = Vector2(-237, -20)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay5PatrolPoints/Point1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
-[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/Stringay5PatrolPoints"]
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5"]
 position = Vector2(672, -65)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/Stringay5PatrolPoints/Point2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints6" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3174, 602)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints6"]
+position = Vector2(-98, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints6/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints6"]
+position = Vector2(551, -8)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints6/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints9" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3418, 265)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints9"]
+position = Vector2(-98, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints9/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints9"]
+position = Vector2(551, -8)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints9/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints7" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3168, 542)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7"]
+position = Vector2(-241, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7"]
+position = Vector2(684, -13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints8" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3168, 505)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8"]
+position = Vector2(-241, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8"]
+position = Vector2(684, -13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Stingray" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(1928, 335)
-_patrolList = NodePath("../PatrolPoints/Stringay1PatrolPoints")
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints")
 
 [node name="Stingray2" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(3415, 127)
-_patrolList = NodePath("../PatrolPoints/Stringay2PatrolPoints")
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints2")
 
 [node name="Stingray3" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(2667, 301)
-_patrolList = NodePath("../PatrolPoints/Stringay3PatrolPoints")
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints3")
 
 [node name="Stingray4" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(3747, 470)
-_patrolList = NodePath("../PatrolPoints/Stringay4PatrolPoints")
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints4")
 
 [node name="Stingray5" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(3078, 576)
-_patrolList = NodePath("../PatrolPoints/Stringay5PatrolPoints")
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints5")
+
+[node name="Stingray6" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
+position = Vector2(3276, 596)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints6")
+
+[node name="Stingray7" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
+position = Vector2(3529, 540)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints7")
+
+[node name="Stingray8" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
+position = Vector2(3312, 504)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints8")
+
+[node name="Stingray9" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
+position = Vector2(3607, 267)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints9")
 
 [node name="TrashManager" parent="." instance=ExtResource("4_0e4ms")]
 _trashPrefab = ExtResource("5_ra0km")
@@ -183,7 +261,7 @@ position = Vector2(3270, 619)
 position = Vector2(3800, 381)
 
 [node name="Trash9" parent="TrashManager" instance=ExtResource("5_ra0km")]
-position = Vector2(3274, 300)
+position = Vector2(3339, 318)
 
 [node name="Trash10" parent="TrashManager" instance=ExtResource("5_ra0km")]
 position = Vector2(3768, 70)
@@ -191,24 +269,24 @@ position = Vector2(3768, 70)
 [node name="BubblesManager" parent="." instance=ExtResource("6_8kudv")]
 
 [node name="BubbleSpawner" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(630, 372)
+position = Vector2(630, 364)
 
 [node name="BubbleSpawner2" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(1784, 549)
+position = Vector2(1784, 540)
 
 [node name="BubbleSpawner3" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(1831, 82)
+position = Vector2(1831, 74)
 
 [node name="BubbleSpawner4" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(2774, 370)
+position = Vector2(2774, 362)
 
 [node name="BubbleSpawner5" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(2970, 624)
+position = Vector2(2970, 616)
 
 [node name="BubbleSpawner6" parent="BubblesManager" instance=ExtResource("7_4dgi5")]
-position = Vector2(3384, 323)
+position = Vector2(3384, 317)
 
-[node name="Tutorial" type="Node2D" parent="."]
+[node name="Tutorial" parent="." instance=ExtResource("10_0ifkg")]
 
 [connection signal="SpawnTrash" from="Agents/Penguin" to="TrashManager" method="SpawnTrash"]
 [connection signal="SpawnTrash" from="Agents/Penguin2" to="TrashManager" method="SpawnTrash"]

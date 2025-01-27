@@ -1,24 +1,75 @@
-[gd_scene load_steps=7 format=4 uid="uid://feih5fcntmg"]
+[gd_scene load_steps=14 format=4 uid="uid://feih5fcntmg"]
 
-[ext_resource type="Script" path="res://scenes/main/Level.cs" id="1_8hmp8"]
+[ext_resource type="Script" path="res://src/main/Level.cs" id="1_ipyo5"]
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_lauqo"]
 [ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="2_3vtn8"]
+[ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="4_7ughu"]
+[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
+[ext_resource type="PackedScene" uid="uid://clsjaw8mnh6y8" path="res://scenes/agents/Shark.tscn" id="6_3v1wl"]
+[ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_ypwqx"]
+[ext_resource type="PackedScene" uid="uid://46846brmmr2o" path="res://scenes/agents/LightFish.tscn" id="7_a8sx5"]
 [ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="8_ae35d"]
+[ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="9_ba07d"]
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="10_c51y3"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1ccm7"]
 b = Vector2(4200, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_epho2"]
+radius = 5.0
+
 [node name="Root" type="Node2D" node_paths=PackedStringArray("_playerPos")]
-script = ExtResource("1_8hmp8")
+script = ExtResource("1_ipyo5")
 _playerPos = NodePath("PlayerPos")
+_victoryCondition = 14
 
 [node name="PlayerPos" type="Node2D" parent="."]
-position = Vector2(112, 108)
+position = Vector2(174, 66)
 
 [node name="ParallaxBackgorund" parent="." instance=ExtResource("1_lauqo")]
 
 [node name="TrashManager" parent="." instance=ExtResource("8_ae35d")]
+
+[node name="Trash" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(674, 383)
+
+[node name="Trash2" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(950, 255)
+
+[node name="Trash3" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(1529, 620)
+
+[node name="Trash4" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(2280, 591)
+
+[node name="Trash5" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(2668, 621)
+
+[node name="Trash7" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(3358, 588)
+
+[node name="Trash8" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(1841, 351)
+
+[node name="Trash9" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(3690, 137)
+
+[node name="Trash10" parent="TrashManager" instance=ExtResource("4_7ughu")]
+position = Vector2(1993, 623)
+
+[node name="Penguin" type="Node2D" parent="."]
+
+[node name="Penguin" parent="Penguin" instance=ExtResource("4_jf523")]
+position = Vector2(1717, 339)
+
+[node name="Penguin2" parent="Penguin" instance=ExtResource("4_jf523")]
+position = Vector2(2048, 180)
+
+[node name="Penguin3" parent="Penguin" instance=ExtResource("4_jf523")]
+position = Vector2(3603, 132)
+
+[node name="Penguin4" parent="Penguin" instance=ExtResource("4_jf523")]
+position = Vector2(4051, 402)
 
 [node name="Map" parent="." instance=ExtResource("2_3vtn8")]
 
@@ -33,6 +84,148 @@ collision_mask = 4294967295
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MapLimits"]
 shape = SubResource("SegmentShape2D_1ccm7")
 
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="PatrolPoints" type="Node2D" parent="Enemies"]
+
+[node name="StringayPatrolPoints" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(2371, 261)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
+position = Vector2(-24, 28)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point1"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
+position = Vector2(114, -85)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point2"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point3" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
+position = Vector2(270, -23)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point3"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="StringayPatrolPoints2" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3529, 546)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2"]
+position = Vector2(-462, -4)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2/Point1"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2"]
+position = Vector2(434, -12)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints2/Point2"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="StringayPatrolPoints3" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(1541, 546)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3"]
+position = Vector2(-462, -4)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3/Point1"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3"]
+position = Vector2(434, -12)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints3/Point2"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="StringayPatrolPoints4" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(1542, 261)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
+position = Vector2(-24, 28)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point1"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
+position = Vector2(59, -65)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point2"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point3" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
+position = Vector2(145, 54)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point3"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="StringayPatrolPoints5" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(2738, 561)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5"]
+position = Vector2(-462, -4)
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point1"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5"]
+position = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point2"]
+shape = SubResource("CircleShape2D_epho2")
+
+[node name="SharkBodyController" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_3v1wl")]
+position = Vector2(2392, 256)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints")
+
+[node name="SharkBodyController2" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_3v1wl")]
+position = Vector2(3528, 553)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints2")
+
+[node name="LightFish" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("7_a8sx5")]
+position = Vector2(1552, 557)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints3")
+
+[node name="Stingray" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_ypwqx")]
+position = Vector2(1661, 310)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints4")
+
+[node name="LightFish2" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("7_a8sx5")]
+position = Vector2(2497, 581)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints5")
+
 [node name="BubblesManager" parent="." instance=ExtResource("10_c51y3")]
+
+[node name="BubbleSpawner" parent="BubblesManager" instance=ExtResource("9_ba07d")]
+position = Vector2(2327, 619)
+
+[node name="BubbleSpawner2" parent="BubblesManager" instance=ExtResource("9_ba07d")]
+position = Vector2(3222, 652)
+
+[node name="BubbleSpawner3" parent="BubblesManager" instance=ExtResource("9_ba07d")]
+position = Vector2(1978, 618)
+
+[node name="BubbleSpawner4" parent="BubblesManager" instance=ExtResource("9_ba07d")]
+position = Vector2(2531, 362)
+
+[node name="BubbleSpawner5" parent="BubblesManager" instance=ExtResource("9_ba07d")]
+position = Vector2(550, 395)
+
+[connection signal="SpawnTrash" from="Penguin/Penguin" to="TrashManager" method="SpawnTrash"]
+[connection signal="SpawnTrash" from="Penguin/Penguin2" to="TrashManager" method="SpawnTrash"]
+[connection signal="SpawnTrash" from="Penguin/Penguin3" to="TrashManager" method="SpawnTrash"]
+[connection signal="SpawnTrash" from="Penguin/Penguin4" to="TrashManager" method="SpawnTrash"]
 
 [editable path="Map"]

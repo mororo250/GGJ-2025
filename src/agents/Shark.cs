@@ -12,16 +12,16 @@ public enum SharkState
 
 public partial class Shark : CharacterBody2D
 {
-	[Export] private Player _player;
 	[Export] private Node2D       _patrolList;
 	private          List<Area2D> _patrolPath = new();
 	
-	[Export] private float _swiminSpeed = 50; // pixels per second
-	[Export] private float _attackSpeed = 80; //  pixels per seconds
-	[Export] private uint  _cooldownTime = 0; // frames
-	[Export] private uint  _attackDamage = 250; 
-	[Export] private uint  _attackRange = 300; // pixels
-	private uint  _currentCooldownTime = 0; // frames
+	[Export] private float  _swiminSpeed  = 50; // pixels per second
+	[Export] private float  _attackSpeed  = 65; //  pixels per seconds
+	[Export] private uint   _cooldownTime = 90;  // frames
+	[Export] private uint   _attackDamage = 250; 
+	[Export] private uint   _attackRange  = 450; // pixels
+	private          Player _player;
+	private          uint   _currentCooldownTime = 0; // frames
 	
 	
 	[Export] private AnimatedSprite2D _animatedSprite;
@@ -78,10 +78,9 @@ public partial class Shark : CharacterBody2D
 	{
 		Velocity = Vector2.Zero;
 		_currentCooldownTime--;
-		if (_cooldownTime == 0)
+		if (_currentCooldownTime == 0)
 		{
 			_state = SharkState.Swimming;
-			_animatedSprite.Play("Swim");
 		}
 	}
 
@@ -89,7 +88,7 @@ public partial class Shark : CharacterBody2D
 	{
 		int closestPatrolPoint = ClosestPatrolPoint();
 		Vector2 patrolPointPos = _patrolPath[closestPatrolPoint].GlobalPosition;
-		if (GlobalPosition.DistanceTo(patrolPointPos) > _attackRange)
+		if (GlobalPosition.DistanceTo(patrolPointPos) > _attackRange || _player == null)
 		{
 			_currentPatrolPoint = closestPatrolPoint;
 			_state = SharkState.Swimming;
@@ -136,9 +135,9 @@ public partial class Shark : CharacterBody2D
 		}
 	}
 	
-	private void OnPatrolPointBodyEntered(Node body)
+	private void OnPatrolPointBodyEntered(Area2D body)
 	{
-		if (body != this)
+		if (body != _patrolPath[_currentPatrolPoint])
 			return;
 		
 		_currentPatrolPoint++;
@@ -161,6 +160,7 @@ public partial class Shark : CharacterBody2D
 		{
 			_state = SharkState.Attacking;
 			_animatedSprite.Play("Attack");
+			_player = player;
 		}
 	}
 	
@@ -169,9 +169,10 @@ public partial class Shark : CharacterBody2D
 		if (body is Player player)
 		{
 			player.TakeDamage(_attackDamage);
-			_player.ApplyImpulse(Velocity * 2);
-			_state               = SharkState.Cooldown;
+			player.ApplyImpulse(Velocity * 2);
+			_state = SharkState.Cooldown;
 			_currentCooldownTime = _cooldownTime;
+			_animatedSprite.Play("Swim");
 		}
 	}
 }

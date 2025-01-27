@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://g2rinuspey20"]
+
+[ext_resource type="Script" path="res://src/main/GameOver.cs" id="1_cgmdj"]
+[ext_resource type="Texture2D" uid="uid://bnucf47enj3kf" path="res://assets/ui/gameover.png" id="2_wt5u8"]
+[ext_resource type="Theme" uid="uid://dbwc5mf7xaxe8" path="res://assets/ui/PauseMenu.tres" id="3_3d2da"]
+[ext_resource type="FontFile" uid="uid://dmfflycybfaey" path="res://assets/ui/font/gameovercre1.ttf" id="4_0ghqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8pxd"]
+atlas = ExtResource("2_wt5u8")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgva5"]
+atlas = ExtResource("2_wt5u8")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvj4g"]
+atlas = ExtResource("2_wt5u8")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0s71"]
+atlas = ExtResource("2_wt5u8")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4yjv"]
+atlas = ExtResource("2_wt5u8")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al0m0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8pxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgva5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvj4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0s71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4yjv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("_animatedSprite2D")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgmdj")
+_animatedSprite2D = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_al0m0")
+frame_progress = 0.541346
+centered = false
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 38.0
+offset_right = 26.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_3d2da")
+
+[node name="Yes" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.819608, 0.921569, 0.972549, 1)
+theme_override_colors/font_color = Color(0.270588, 0.807843, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.921569, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_0ghqp")
+theme_override_font_sizes/font_size = 12
+text = "Yes
+"
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="No" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.819608, 0.921569, 0.972549, 1)
+theme_override_colors/font_color = Color(0.270588, 0.807843, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.921569, 0.972549, 1)
+theme_override_fonts/font = ExtResource("4_0ghqp")
+theme_override_font_sizes/font_size = 12
+text = "No
+"
+alignment = 0
+vertical_icon_alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Yes" to="." method="OnRetryButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/No" to="." method="OnNotButtonPressed"]

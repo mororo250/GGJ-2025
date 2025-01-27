@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://rgerf73r5d1i"]
+
+[ext_resource type="Texture2D" uid="uid://5egyqg5swrdm" path="res://assets/tutorial/e.png" id="1_yuydi"]
+[ext_resource type="FontFile" uid="uid://c48eg5fh5424e" path="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf" id="2_1qt3r"]
+[ext_resource type="Texture2D" uid="uid://m1ncpesok1rl" path="res://assets/tutorial/espaco.png" id="3_veo1d"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fbnj4"]
+viewport_path = NodePath("Penguin/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4dp5"]
+viewport_path = NodePath("Trash/SubViewport")
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Penguin" type="Node2D" parent="."]
+position = Vector2(3004, 73)
+
+[node name="TutorialText" type="Sprite2D" parent="Penguin"]
+position = Vector2(10, 31)
+texture = SubResource("ViewportTexture_fbnj4")
+
+[node name="E" type="Sprite2D" parent="Penguin"]
+position = Vector2(51, 9)
+texture = ExtResource("1_yuydi")
+
+[node name="SubViewport" type="SubViewport" parent="Penguin"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(52, 12)
+size_2d_override_stretch = true
+
+[node name="Control" type="Control" parent="Penguin/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Penguin/SubViewport/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.435294, 0.435294, 0.435294, 0)
+theme_override_fonts/font = ExtResource("2_1qt3r")
+theme_override_font_sizes/font_size = 12
+text = "SAVE ME"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Trash" type="Node2D" parent="."]
+position = Vector2(1139, 204)
+
+[node name="TutorialText" type="Sprite2D" parent="Trash"]
+position = Vector2(0, -5)
+texture = SubResource("ViewportTexture_g4dp5")
+
+[node name="SpaceBar" type="Sprite2D" parent="Trash"]
+position = Vector2(2, 22)
+texture = ExtResource("3_veo1d")
+
+[node name="SubViewport" type="SubViewport" parent="Trash"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(96, 36)
+
+[node name="Control" type="Control" parent="Trash/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Trash/SubViewport/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.435294, 0.435294, 0.435294, 0)
+theme_override_fonts/font = ExtResource("2_1qt3r")
+theme_override_font_sizes/font_size = 14
+text = "Help clean the ocean!"
+vertical_alignment = 1
+autowrap_mode = 3

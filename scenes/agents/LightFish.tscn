@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://46846brmmr2o"]
+
+[ext_resource type="Script" path="res://src/agents/Fish.cs" id="1_pto27"]
+[ext_resource type="Texture2D" uid="uid://bmcx185qn664n" path="res://assets/agents/peixeLanterna/peixe-lanterna.png" id="2_mmxsa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c10a4"]
+atlas = ExtResource("2_mmxsa")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpmvb"]
+atlas = ExtResource("2_mmxsa")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rx2u"]
+atlas = ExtResource("2_mmxsa")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxed3"]
+atlas = ExtResource("2_mmxsa")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mh8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c10a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpmvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rx2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxed3")
+}],
+"loop": true,
+"name": &"PeixeLanterna",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmsf"]
+radius = 4.0
+height = 24.0
+
+[node name="LightFish" type="CharacterBody2D" node_paths=PackedStringArray("_animatedSprite")]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_pto27")
+_animatedSprite = NodePath("LightFishAnim")
+
+[node name="LightFishAnim" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7mh8l")
+animation = &"PeixeLanterna"
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 536870913
+
+[node name="HitBox" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ffmsf")
+
+[connection signal="area_entered" from="HitBox" to="." method="OnPatrolPointBodyEntered"]
+[connection signal="body_entered" from="HitBox" to="." method="OnBodyEntered"]

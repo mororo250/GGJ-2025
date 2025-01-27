@@ -16,6 +16,7 @@ public partial class PauseMenu : Control
 	
 	private void OnMainMenuButtonPressed()
 	{
+		Engine.TimeScale = 1;
 		AudioManager.Instance.PlayGlobalSFX(AudioType.Click);
 		SceneManager.Instance.LoadMainMenu();
 	}

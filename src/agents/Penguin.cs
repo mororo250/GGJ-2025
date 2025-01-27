@@ -4,7 +4,7 @@ using Godot;
 public partial class Penguin : AnimatedSprite2D
 {
 	private bool _playerIsNearby;
-	[Signal]public delegate void SpawnTrashEventHandler(Vector2 position, string trashType = "Plastico");  
+	[Signal]public delegate void SpawnTrashEventHandler(Vector2 position);  
 
 	public override void _Ready()
 	{
@@ -30,7 +30,7 @@ public partial class Penguin : AnimatedSprite2D
 	private void Interact()
 	{
 		Play("Happy");
-		EmitSignal(SignalName.SpawnTrash, GlobalPosition, "Plastico");
+		EmitSignal(SignalName.SpawnTrash, GlobalPosition);
 	}
 
 	public override void _UnhandledInput(InputEvent @event)

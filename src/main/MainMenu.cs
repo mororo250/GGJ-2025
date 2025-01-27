@@ -2,15 +2,9 @@ using Godot;
 
 public partial class MainMenu : Control
 {
-	public override void _EnterTree()
-	{
-		Window window = GetViewport().GetWindow();
-		window.ContentScaleFactor = 1;
-	}
-
 	public override void _Ready()
 	{
-		AudioManager.Instance.PlayMusic(AudioType.MusicMenu, 0.35f);
+		AudioManager.Instance.PlayMusic(AudioType.MusicMenu, 0.45f);
 	}
 
 	private void OnQUitButtonPressed()
