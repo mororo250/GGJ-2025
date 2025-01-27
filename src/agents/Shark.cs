@@ -136,9 +136,9 @@ public partial class Shark : CharacterBody2D
 		}
 	}
 	
-	private void OnPatrolPointBodyEntered(Node body)
+	private void OnPatrolPointBodyEntered(Area2D body)
 	{
-		if (body != this)
+		if (body != _patrolPath[_currentPatrolPoint])
 			return;
 		
 		_currentPatrolPoint++;
@@ -161,6 +161,7 @@ public partial class Shark : CharacterBody2D
 		{
 			_state = SharkState.Attacking;
 			_animatedSprite.Play("Attack");
+			_player = player;
 		}
 	}
 	
@@ -172,7 +173,6 @@ public partial class Shark : CharacterBody2D
 			player.ApplyImpulse(Velocity * 2);
 			_state               = SharkState.Cooldown;
 			_currentCooldownTime = _cooldownTime;
-			_player              = player;
 		}
 	}
 }

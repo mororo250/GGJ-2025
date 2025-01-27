@@ -58,20 +58,30 @@ public partial class Player : RigidBody2D
 	
 	public void TakeDamage(uint damage)
 	{
-		_health -= damage;
-		_flash = true;
+		if (damage > _health)
+		{
+			_health = 0;
+			_soundPlayer.Stop();
+			EmitSignal(SignalName.GameOver);
+		}
+		else
+		{
+			_health -= damage;
+			_flash  =  true;
+		}
 		AudioManager.Instance.PlaySFX(AudioType.Damage, GlobalPosition, 200, 0.35f);
 	}
 	
 	public override void _Ready()
 	{
 		_chain.TrashCollected += OnTrashColected;
+		_soundPlayer          =  AudioManager.Instance.PlayGlobalSFXLoop(AudioType.Submarine, 0.3f);
 		Init();
 	}
 
-	private void Init()
+	public void Init()
 	{
-		_soundPlayer     = AudioManager.Instance.PlayGlobalSFXLoop(AudioType.Submarine, 0.3f);
+		_trashCount	   = 0;
 		_oxygen          = _oxygenMaxValue;
 		_health          = _healthMaxValue;
 	}
@@ -122,12 +132,6 @@ public partial class Player : RigidBody2D
 		
 		UpdateMovement();
 		UpdateOxygen();
-		
-		if (_health == 0)
-		{
-			_soundPlayer.Stop();
-			EmitSignal(SignalName.GameOver);
-		}
 	}
 
 	private void UpdateMovement()
@@ -158,16 +162,17 @@ public partial class Player : RigidBody2D
 
 	private void UpdateOxygen()
 	{
-		if (_oxygen <= 0)
+		if (_oxygen == 0)
 		{
 			TakeDamage(_oxygenDecayRate);
-			if (_health == 0)
-				return;
-
-			_oxygen = 0;
 		}
-		else 
-			_oxygen -= _oxygenDecayRate;
+		else
+		{
+			if (_oxygen < _oxygenDecayRate)
+				_oxygen = 0;
+			else
+				_oxygen -= _oxygenDecayRate;
+		}
 	}
 
 	public override void _UnhandledInput(InputEvent @event)

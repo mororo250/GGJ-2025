@@ -10,6 +10,9 @@ public partial class MainScene : Node
 	[Export] private Player _player;
 	private          Level  _currentLevel;
 	
+	[Export] private GameOver _gameOverScreen;
+	[Export] private WinScreen  _victoryScreen;
+	
 	public override void _EnterTree()
 	{
 		GetWindow().ContentScaleFactor = 4;
@@ -23,12 +26,24 @@ public partial class MainScene : Node
 	{
 		if (_player.TrashCount == _currentLevel.VitoryCondition)
 		{
+			_victoryScreen.Visible = true;
+			_victoryScreen.OnVisibilityChanged();
 			_map.RemoveChild(_currentLevel);
 			_currentLevel          = Level2.Instantiate() as Level;
 			_player.GlobalPosition = _currentLevel.PlayerPosition;
+			_player.Init();
+
 			// todo: initialize player again
 			_map.AddChild(_currentLevel);
 		}
 	}
-	
+
+
+	private void OnGameOver() => _gameOverScreen.SetVisibility(true);
+
+	private void OnRetry()
+	{
+		_player.GlobalPosition = _currentLevel.PlayerPosition;
+		_player.Init();
+	}
 }
