@@ -1,8 +1,84 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjsubf44d6hqc"]
+[gd_scene load_steps=13 format=3 uid="uid://cjsubf44d6hqc"]
 
+[ext_resource type="Texture2D" uid="uid://ofsmxrbxren1" path="res://assets/map/ostra.png" id="1_5hmpp"]
 [ext_resource type="Script" path="res://src/interactables/BubbleSpawner.cs" id="1_ovjb6"]
 [ext_resource type="PackedScene" uid="uid://bpk6u4cwx82wl" path="res://scenes/interactables/bubble.tscn" id="2_c4tex"]
 
-[node name="BubbleSpawner" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvv2d"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4etmm"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sxya"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prd5v"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7fmh"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv34a"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acdkf"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mst"]
+atlas = ExtResource("1_5hmpp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul7rn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvv2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4etmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prd5v")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_x7fmh")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_fv34a")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_acdkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mst")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 1.0
+}]
+
+[node name="BubbleSpawner" type="AnimatedSprite2D"]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_ul7rn")
+animation = &"Close"
+frame = 3
 script = ExtResource("1_ovjb6")
 _bubblePrefab = ExtResource("2_c4tex")
+
+[connection signal="animation_finished" from="." to="." method="OnAnimationFinished"]

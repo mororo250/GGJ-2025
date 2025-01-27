@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://qj48yi0d7s3"]
+[gd_scene load_steps=7 format=3 uid="uid://qj48yi0d7s3"]
 
-[ext_resource type="PackedScene" uid="uid://dlicwcbcwvfgi" path="res://scenes/main/Level1.tscn" id="1_2ljru"]
 [ext_resource type="PackedScene" uid="uid://lfhk5f000cdo" path="res://scenes/camera/camera2D.tscn" id="1_dgmxc"]
 [ext_resource type="Script" path="res://src/main/MainScene.cs" id="1_kkplw"]
 [ext_resource type="PackedScene" uid="uid://cx0ilp71jq5ck" path="res://scenes/agents/player.tscn" id="1_y1hli"]
@@ -12,7 +11,7 @@ bounce = 1.2
 
 [node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player")]
 script = ExtResource("1_kkplw")
-Level1 = ExtResource("1_2ljru")
+Level1 = ExtResource("3_y6q5d")
 Level2 = ExtResource("3_y6q5d")
 _map = NodePath("Game/Map")
 _player = NodePath("Game/Player")

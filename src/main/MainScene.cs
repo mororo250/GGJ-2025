@@ -14,16 +14,19 @@ public partial class MainScene : Node
 	{
 		GetWindow().ContentScaleFactor = 4;
 
-		_currentLevel = Level1.Instantiate() as Level;
+		_currentLevel          = Level1.Instantiate() as Level;
+		_player.GlobalPosition = _currentLevel.PlayerPosition;
 		_map.AddChild(_currentLevel);
 	}
 	
 	public override void _Process(double delta)
 	{
-		if (_player.TrashCount > _currentLevel.VitoryCondition)
+		if (_player.TrashCount == _currentLevel.VitoryCondition)
 		{
 			_map.RemoveChild(_currentLevel);
-			_currentLevel = Level2.Instantiate() as Level;
+			_currentLevel          = Level2.Instantiate() as Level;
+			_player.GlobalPosition = _currentLevel.PlayerPosition;
+			// todo: initialize player again
 			_map.AddChild(_currentLevel);
 		}
 	}

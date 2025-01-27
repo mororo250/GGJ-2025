@@ -12,16 +12,16 @@ public enum SharkState
 
 public partial class Shark : CharacterBody2D
 {
-	[Export] private Player _player;
 	[Export] private Node2D       _patrolList;
 	private          List<Area2D> _patrolPath = new();
 	
-	[Export] private float _swiminSpeed = 50; // pixels per second
-	[Export] private float _attackSpeed = 80; //  pixels per seconds
-	[Export] private uint  _cooldownTime = 0; // frames
-	[Export] private uint  _attackDamage = 250; 
-	[Export] private uint  _attackRange = 300; // pixels
-	private uint  _currentCooldownTime = 0; // frames
+	[Export] private float  _swiminSpeed  = 50; // pixels per second
+	[Export] private float  _attackSpeed  = 80; //  pixels per seconds
+	[Export] private uint   _cooldownTime = 0;  // frames
+	[Export] private uint   _attackDamage = 250; 
+	[Export] private uint   _attackRange  = 300; // pixels
+	private          Player _player;
+	private          uint   _currentCooldownTime = 0; // frames
 	
 	
 	[Export] private AnimatedSprite2D _animatedSprite;
@@ -89,7 +89,7 @@ public partial class Shark : CharacterBody2D
 	{
 		int closestPatrolPoint = ClosestPatrolPoint();
 		Vector2 patrolPointPos = _patrolPath[closestPatrolPoint].GlobalPosition;
-		if (GlobalPosition.DistanceTo(patrolPointPos) > _attackRange)
+		if (GlobalPosition.DistanceTo(patrolPointPos) > _attackRange || _player == null)
 		{
 			_currentPatrolPoint = closestPatrolPoint;
 			_state = SharkState.Swimming;
@@ -169,9 +169,10 @@ public partial class Shark : CharacterBody2D
 		if (body is Player player)
 		{
 			player.TakeDamage(_attackDamage);
-			_player.ApplyImpulse(Velocity * 2);
+			player.ApplyImpulse(Velocity * 2);
 			_state               = SharkState.Cooldown;
 			_currentCooldownTime = _cooldownTime;
+			_player              = player;
 		}
 	}
 }

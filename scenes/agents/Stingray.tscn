@@ -1,7 +1,99 @@
-[gd_scene load_steps=4 format=3 uid="uid://dai7tj8cxbx7l"]
+[gd_scene load_steps=17 format=3 uid="uid://dai7tj8cxbx7l"]
 
-[ext_resource type="SpriteFrames" uid="uid://8o2yi3kx4xu5" path="res://assets/animation/Shark.tres" id="1_8elni"]
-[ext_resource type="Script" path="res://src/agents/Stingray.cs" id="1_cexch"]
+[ext_resource type="Script" path="res://src/agents/Fish.cs" id="1_cexch"]
+[ext_resource type="Texture2D" uid="uid://bsw45nbwke5kn" path="res://assets/agents/stingGray/arraia1.png" id="2_vj3go"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0febb"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(0, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qn4x"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(40, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paj3m"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(80, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yib48"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(120, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hto6"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(160, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsubn"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(200, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxrxp"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(240, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiu5i"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(280, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaf5o"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(320, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p0hu"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(360, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4d78"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(400, 0, 40, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g505y"]
+atlas = ExtResource("2_vj3go")
+region = Rect2(440, 0, 40, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq2pb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0febb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qn4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paj3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yib48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hto6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsubn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxrxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiu5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaf5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p0hu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4d78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g505y")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffmsf"]
 radius = 2.0
@@ -17,9 +109,8 @@ _animatedSprite = NodePath("StingGray")
 
 [node name="StingGray" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = ExtResource("1_8elni")
+sprite_frames = SubResource("SpriteFrames_iq2pb")
 animation = &"new_animation"
-frame_progress = 0.867769
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
