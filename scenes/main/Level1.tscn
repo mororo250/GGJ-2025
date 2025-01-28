@@ -1,14 +1,16 @@
-[gd_scene load_steps=61 format=4 uid="uid://dlicwcbcwvfgi"]
+[gd_scene load_steps=63 format=4 uid="uid://dlicwcbcwvfgi"]
 
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_4sbki"]
 [ext_resource type="Script" path="res://src/main/Level.cs" id="1_ssoje"]
 [ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="4_0e4ms"]
-[ext_resource type="PackedScene" path="res://scenes/agents/Penguin.tscn" id="5_1768f"]
+[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="5_1768f"]
 [ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="5_ra0km"]
 [ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="6_1hl6d"]
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="6_8kudv"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_h30g6"]
 [ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="7_4dgi5"]
+[ext_resource type="PackedScene" uid="uid://46846brmmr2o" path="res://scenes/agents/LightFish.tscn" id="7_ms667"]
+[ext_resource type="PackedScene" uid="uid://d1bt1sdfttxei" path="res://scenes/agents/LifeFish.tscn" id="8_sijng"]
 [ext_resource type="PackedScene" uid="uid://rgerf73r5d1i" path="res://scenes/tutorial/tutorial.tscn" id="10_0ifkg"]
 [ext_resource type="Texture2D" uid="uid://c8fys88e3hl1e" path="res://assets/scenario/elementos_cenario.png" id="11_26rl3"]
 
@@ -288,10 +290,9 @@ radius = 5.0
 texture_filter = 1
 script = ExtResource("1_ssoje")
 _playerPos = NodePath("PlayerPos")
-_victoryCondition = 12
 
 [node name="PlayerPos" type="Node2D" parent="."]
-position = Vector2(196, 225)
+position = Vector2(2904, 204)
 
 [node name="ParallaxBackgorund" parent="." instance=ExtResource("1_4sbki")]
 
@@ -1706,22 +1707,18 @@ position = Vector2(2030, 335)
 
 [node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(-102, 0)
-collision_layer = 536870912
-collision_mask = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point1"]
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(110, -204)
-collision_layer = 536870912
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point3" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints"]
 position = Vector2(430, -169)
-collision_layer = 536870912
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints/Point3"]
 shape = SubResource("CircleShape2D_ptk46")
@@ -1769,6 +1766,7 @@ shape = SubResource("CircleShape2D_ptk46")
 position = Vector2(672, -65)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point2"]
+position = Vector2(136, 3)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints5" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1784,6 +1782,7 @@ shape = SubResource("CircleShape2D_ptk46")
 position = Vector2(672, -65)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point2"]
+position = Vector2(88, 5)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints6" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1829,6 +1828,7 @@ shape = SubResource("CircleShape2D_ptk46")
 position = Vector2(684, -13)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7/Point2"]
+position = Vector2(87, 0)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints8" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1844,6 +1844,37 @@ shape = SubResource("CircleShape2D_ptk46")
 position = Vector2(684, -13)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8/Point2"]
+position = Vector2(97, 3)
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints10" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3168, 492)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints10"]
+position = Vector2(801, -13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints10/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints10"]
+position = Vector2(-241, -13)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints10/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="StringayPatrolPoints11" type="Node2D" parent="Enemies/PatrolPoints"]
+position = Vector2(3062, 584)
+
+[node name="Point1" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints11"]
+position = Vector2(651, 15)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints11/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints11"]
+position = Vector2(-15, 15)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints11/Point2"]
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Stingray" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
@@ -1881,6 +1912,43 @@ _patrolList = NodePath("../PatrolPoints/StringayPatrolPoints8")
 [node name="Stingray9" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("6_h30g6")]
 position = Vector2(3607, 267)
 _patrolList = NodePath("../PatrolPoints/StringayPatrolPoints9")
+
+[node name="LightFish" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("7_ms667")]
+position = Vector2(3469, 492)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints10")
+
+[node name="LightFish2" parent="Enemies" node_paths=PackedStringArray("_patrolList") instance=ExtResource("7_ms667")]
+position = Vector2(3485, 602)
+_patrolList = NodePath("../PatrolPoints/StringayPatrolPoints11")
+
+[node name="LifeFish" type="Node2D" parent="."]
+
+[node name="StringayPatrolPoints12" type="Node2D" parent="LifeFish"]
+position = Vector2(3418, 280)
+
+[node name="Point1" type="Area2D" parent="LifeFish/StringayPatrolPoints12"]
+position = Vector2(-98, 1)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LifeFish/StringayPatrolPoints12/Point1"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="Point2" type="Area2D" parent="LifeFish/StringayPatrolPoints12"]
+position = Vector2(551, 4)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LifeFish/StringayPatrolPoints12/Point2"]
+shape = SubResource("CircleShape2D_ptk46")
+
+[node name="CharacterBody2D" parent="LifeFish" node_paths=PackedStringArray("_patrolList") instance=ExtResource("8_sijng")]
+position = Vector2(3376, 280)
+_patrolList = NodePath("../StringayPatrolPoints12")
+
+[node name="CharacterBody2D2" parent="LifeFish" node_paths=PackedStringArray("_patrolList") instance=ExtResource("8_sijng")]
+position = Vector2(3833, 285)
+_patrolList = NodePath("../StringayPatrolPoints12")
 
 [node name="TrashManager" parent="." instance=ExtResource("4_0e4ms")]
 _trashPrefab = ExtResource("5_ra0km")
@@ -1936,5 +2004,7 @@ position = Vector2(2970, 616)
 position = Vector2(3384, 317)
 
 [node name="Tutorial" parent="." instance=ExtResource("10_0ifkg")]
+
+[connection signal="SpawnTrash" from="Agents/Penguin" to="TrashManager" method="SpawnTrash"]
 
 [editable path="Map"]
