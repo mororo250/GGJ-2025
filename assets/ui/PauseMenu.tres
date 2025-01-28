@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dbwc5mf7xaxe8"]
-
-[ext_resource type="FontFile" uid="uid://c5c87w1s5r76e" path="res://assets/ui/font/good_old_dos/Good Old DOS Distorted.ttf" id="1_6sji7"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dbwc5mf7xaxe8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8l7n"]
 
@@ -24,18 +22,18 @@ anti_aliasing = false
 Button/colors/font_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0.588235, 0.745098, 1)
-Button/fonts/font = ExtResource("1_6sji7")
+Button/fonts/font = null
 Button/styles/focus = SubResource("StyleBoxEmpty_x8l7n")
 Button/styles/hover = SubResource("StyleBoxEmpty_u67a1")
 Button/styles/normal = SubResource("StyleBoxEmpty_r4wao")
 Button/styles/pressed = SubResource("StyleBoxFlat_pvgdx")
-Label/fonts/font = ExtResource("1_6sji7")
-LineEdit/fonts/font = ExtResource("1_6sji7")
+Label/fonts/font = null
+LineEdit/fonts/font = null
 MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
-TabBar/fonts/font = ExtResource("1_6sji7")
-Tree/fonts/font = ExtResource("1_6sji7")
-Tree/fonts/title_button_font = ExtResource("1_6sji7")
+TabBar/fonts/font = null
+Tree/fonts/font = null
+Tree/fonts/title_button_font = null
 Tree/styles/panel = SubResource("StyleBoxTexture_8a1ey")
