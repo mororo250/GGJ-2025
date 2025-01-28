@@ -24,14 +24,13 @@ sprite_frames = ExtResource("1_epk5t")
 animation = &"Swim"
 
 [node name="SharkVision" type="Area2D" parent="."]
-collision_layer = 0
+position = Vector2(23, 0)
 
 [node name="VisionShape" type="CollisionPolygon2D" parent="SharkVision"]
 position = Vector2(22, 2)
 polygon = PackedVector2Array(-20, -15, -20, 15, 150, 100, 150, -100)
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(5, 2)

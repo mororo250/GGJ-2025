@@ -1,4 +1,5 @@
 using agents;
+using CCJ2025.main;
 using Godot;
 
 public partial class MainScene : Node
@@ -8,6 +9,7 @@ public partial class MainScene : Node
 
 	[Export] private Node2D _map;
 	[Export] private Player _player;
+	[Export] private Camera2D _camera;
 	private          Level  _currentLevel;
 	
 	[Export] private GameOver _gameOverScreen;
@@ -15,25 +17,43 @@ public partial class MainScene : Node
 	
 	public override void _EnterTree()
 	{
-		_currentLevel          = Level1.Instantiate() as Level;
-		_player.GlobalPosition = _currentLevel.PlayerPosition;
-		_map.AddChild(_currentLevel);
+		GameState.CurrentLevel = 1;
+		InitLevel(Level1.Instantiate() as Level);
+		_player.Init();
 	}
 	
 	public override void _Process(double delta)
 	{
-		if (_player.TrashCount == _currentLevel.VitoryCondition)
+		if (_player.TrashCount == GameState.CurrentLevelTrashCount)
 		{
-			_victoryScreen.Visible = true;
-			_victoryScreen.OnVisibilityChanged();
-			_map.RemoveChild(_currentLevel);
-			_currentLevel          = Level2.Instantiate() as Level;
-			_player.GlobalPosition = _currentLevel.PlayerPosition;
-			_player.Init();
+			FinishLevel();
+			GameState.CurrentLevel++;
 
-			// todo: initialize player again
-			_map.AddChild(_currentLevel);
+			if (GameState.CurrentLevel > 2)
+			{
+				return;
+			}
+
+			InitLevel(Level2.Instantiate() as Level);
 		}
+	}
+
+	private void InitLevel(Level level)
+	{
+		_currentLevel          = level;
+		_player.GlobalPosition = _currentLevel.PlayerPosition;
+		_camera.GlobalPosition = _player.GlobalPosition;
+		_player.Init();
+		_map.AddChild(_currentLevel);
+		AudioManager.Instance.PlayMusic(AudioType.MusicMainTheme, 0.45f);
+	}
+	
+	private void FinishLevel()
+	{
+		_victoryScreen.Visible = true;
+		_victoryScreen.OnVisibilityChanged();
+		_map.RemoveChild(_currentLevel);
+		_currentLevel.QueueFree();
 	}
 
 
@@ -41,7 +61,6 @@ public partial class MainScene : Node
 
 	private void OnRetry()
 	{
-		_player.GlobalPosition = _currentLevel.PlayerPosition;
-		_player.Init();
+		InitLevel(Level1.Instantiate() as Level);
 	}
 }

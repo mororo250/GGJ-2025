@@ -62,6 +62,9 @@ public partial class Fish : CharacterBody2D
 	
 	private void OnPatrolPointBodyEntered(Area2D body)
 	{
+		if (body != _patrolPath[_currentPatrolPoint])
+			return;
+		
 		_currentPatrolPoint++;
 		if (_currentPatrolPoint >= _patrolPath.Count)
 		{ 

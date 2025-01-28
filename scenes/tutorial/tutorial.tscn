@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://rgerf73r5d1i"]
+[gd_scene load_steps=7 format=3 uid="uid://rgerf73r5d1i"]
 
+[ext_resource type="Script" path="res://scenes/tutorial/Tutorial.cs" id="1_spj10"]
 [ext_resource type="Texture2D" uid="uid://5egyqg5swrdm" path="res://assets/tutorial/e.png" id="1_yuydi"]
 [ext_resource type="FontFile" uid="uid://c48eg5fh5424e" path="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf" id="2_1qt3r"]
 [ext_resource type="Texture2D" uid="uid://m1ncpesok1rl" path="res://assets/tutorial/espaco.png" id="3_veo1d"]
@@ -14,6 +15,7 @@ viewport_path = NodePath("Trash/SubViewport")
 
 [node name="Penguin" type="Node2D" parent="."]
 position = Vector2(3004, 73)
+script = ExtResource("1_spj10")
 
 [node name="TutorialText" type="Sprite2D" parent="Penguin"]
 position = Vector2(10, 31)
@@ -22,6 +24,10 @@ texture = SubResource("ViewportTexture_fbnj4")
 [node name="E" type="Sprite2D" parent="Penguin"]
 position = Vector2(51, 9)
 texture = ExtResource("1_yuydi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Penguin"]
+position = Vector2(53, 11)
+rect = Rect2(-10, -10, 15, 15)
 
 [node name="SubViewport" type="SubViewport" parent="Penguin"]
 transparent_bg = true
@@ -58,6 +64,7 @@ autowrap_mode = 3
 
 [node name="Trash" type="Node2D" parent="."]
 position = Vector2(1139, 204)
+script = ExtResource("1_spj10")
 
 [node name="TutorialText" type="Sprite2D" parent="Trash"]
 position = Vector2(0, -5)
@@ -66,6 +73,10 @@ texture = SubResource("ViewportTexture_g4dp5")
 [node name="SpaceBar" type="Sprite2D" parent="Trash"]
 position = Vector2(2, 22)
 texture = ExtResource("3_veo1d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Trash"]
+position = Vector2(0, -23)
+rect = Rect2(-10, -10, 50, 65)
 
 [node name="SubViewport" type="SubViewport" parent="Trash"]
 transparent_bg = true
@@ -98,3 +109,6 @@ theme_override_font_sizes/font_size = 14
 text = "Help clean the ocean!"
 vertical_alignment = 1
 autowrap_mode = 3
+
+[connection signal="screen_entered" from="Penguin/VisibleOnScreenNotifier2D" to="Penguin" method="OnEnterScreen"]
+[connection signal="screen_entered" from="Trash/VisibleOnScreenNotifier2D" to="Trash" method="OnEnterScreen"]

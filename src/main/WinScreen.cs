@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CCJ2025.main;
 
 public partial class WinScreen : Control
 {
@@ -17,9 +18,10 @@ public partial class WinScreen : Control
 		if (Visible)
 		{
 			_gameNode.ProcessMode = Node.ProcessModeEnum.Disabled;
+			AudioManager.Instance.StopMusic();
 			_animatedSprite2D.Play(_animatedSprite2D.Animation);
 
-			AudioManager.Instance.PlayGlobalSFX(AudioType.GameOver, 0.6f);
+			AudioManager.Instance.PlayGlobalSFX(AudioType.Win, 0.6f);
 		}
 		else
 		{
@@ -31,5 +33,9 @@ public partial class WinScreen : Control
 	{
 		Visible = false;
 		OnVisibilityChanged();
+		if (GameState.CurrentLevel > 2)
+		{
+			SceneManager.Instance.LoadMainMenu();
+		}
 	}
 }
