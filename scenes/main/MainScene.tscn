@@ -12,13 +12,12 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2pnlp"]
 bounce = 1.2
 
-[node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player", "_camera", "_gameOverScreen", "_victoryScreen")]
+[node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player", "_gameOverScreen", "_victoryScreen")]
 script = ExtResource("1_kkplw")
 Level1 = ExtResource("2_xdt4c")
 Level2 = ExtResource("3_y6q5d")
 _map = NodePath("Game/Map")
 _player = NodePath("Game/Player")
-_camera = NodePath("Game/Player/Camera2d")
 _gameOverScreen = NodePath("CanvasLayer/Hud/GameOverScreen")
 _victoryScreen = NodePath("CanvasLayer/Hud/WinScreen")
 

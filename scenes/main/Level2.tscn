@@ -1,19 +1,18 @@
-[gd_scene load_steps=54 format=4 uid="uid://feih5fcntmg"]
+[gd_scene load_steps=71 format=4 uid="uid://feih5fcntmg"]
 
 [ext_resource type="Script" path="res://src/main/Level.cs" id="1_ipyo5"]
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_lauqo"]
 [ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="2_3vtn8"]
 [ext_resource type="Texture2D" uid="uid://c8fys88e3hl1e" path="res://assets/scenario/elementos_cenario.png" id="3_3x88r"]
 [ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="4_7ughu"]
-[ext_resource type="SpriteFrames" uid="uid://pdwnsqajcoq0" path="res://assets/animation/algaVerdePequena.tres" id="4_j4ckt"]
-[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
+[ext_resource type="PackedScene" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
 [ext_resource type="PackedScene" uid="uid://clsjaw8mnh6y8" path="res://scenes/agents/Shark.tscn" id="6_3v1wl"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_ypwqx"]
 [ext_resource type="PackedScene" uid="uid://46846brmmr2o" path="res://scenes/agents/LightFish.tscn" id="7_a8sx5"]
 [ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="8_ae35d"]
 [ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="9_ba07d"]
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="10_c51y3"]
-[ext_resource type="PackedScene" uid="uid://d1bt1sdfttxei" path="res://scenes/agents/LifeFish.tscn" id="12_id3ho"]
+[ext_resource type="PackedScene" path="res://scenes/agents/LifeFish.tscn" id="12_id3ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4e46"]
 atlas = ExtResource("3_3x88r")
@@ -35,6 +34,10 @@ region = Rect2(112, 48, 32, 32)
 atlas = ExtResource("3_3x88r")
 region = Rect2(160, 48, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv8r0"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(160, 16, 16, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2e8s"]
 atlas = ExtResource("3_3x88r")
 region = Rect2(80, 160, 32, 16)
@@ -42,6 +45,43 @@ region = Rect2(80, 160, 32, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bky40"]
 atlas = ExtResource("3_3x88r")
 region = Rect2(112, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00235"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(128, 144, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuv8w"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(192, 112, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_334o6"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3c00"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhlup"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bkv00"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_334o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3c00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhlup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_weges"]
 atlas = ExtResource("3_3x88r")
@@ -192,6 +232,14 @@ region = Rect2(208, 48, 32, 32)
 atlas = ExtResource("3_3x88r")
 region = Rect2(192, 48, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxtnm"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(176, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrfj8"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(80, 112, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfhvj"]
 atlas = ExtResource("3_3x88r")
 region = Rect2(96, 16, 16, 16)
@@ -218,6 +266,68 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0rq1"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(144, 112, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np3d8"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(256, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys0bm"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(256, 16, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxhgh"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(256, 32, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qftka"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(256, 48, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g6yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np3d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys0bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxhgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qftka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xboh"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3pvu"]
+atlas = ExtResource("3_3x88r")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j3aki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xboh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3pvu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_1ccm7"]
 b = Vector2(4200, 0)
 
@@ -230,7 +340,7 @@ script = ExtResource("1_ipyo5")
 _playerPos = NodePath("PlayerPos")
 
 [node name="PlayerPos" type="Node2D" parent="."]
-position = Vector2(150, 90)
+position = Vector2(3333, 325)
 
 [node name="ParallaxBackgorund" parent="." instance=ExtResource("1_lauqo")]
 
@@ -238,6 +348,22 @@ position = Vector2(150, 90)
 
 [node name="AlgaTripla" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(-7, 23)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla35" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3751, 642)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla36" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3775, 647)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla37" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3801, 655)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla38" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3826, 650)
 texture = SubResource("AtlasTexture_e4e46")
 
 [node name="AlgaTripla4" type="Sprite2D" parent="AlgasEstaticas"]
@@ -272,8 +398,212 @@ texture = SubResource("AtlasTexture_e4e46")
 position = Vector2(857, 243)
 texture = SubResource("AtlasTexture_e4e46")
 
+[node name="AlgaTripla10" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1987, 379)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla11" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2027, 375)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla12" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1933, 205)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla13" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1956, 198)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla14" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2007, 196)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla15" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2031, 195)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla16" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2059, 193)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla17" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2086, 180)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla18" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2111, 178)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla19" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2249, 573)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla20" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2301, 606)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla21" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2349, 610)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla22" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2387, 614)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla23" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2410, 621)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla24" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2436, 631)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla25" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2461, 629)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla26" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2490, 630)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla27" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2513, 647)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla28" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2538, 645)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla29" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2560, 630)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla30" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2631, 616)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla31" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2697, 631)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla32" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2721, 621)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla33" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2745, 608)
+texture = SubResource("AtlasTexture_e4e46")
+
+[node name="AlgaTripla34" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2769, 613)
+texture = SubResource("AtlasTexture_e4e46")
+
 [node name="AlgaBolaGrande" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(18, 121)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande31" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(385, 399)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande32" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(443, 413)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande33" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(392, 405)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande34" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(460, 425)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande46" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1959, 183)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande47" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1968, 185)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande48" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1978, 176)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande50" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2113, 160)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande51" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2158, 167)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande52" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2121, 154)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande49" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1989, 183)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande35" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(633, 405)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande36" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(642, 408)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande37" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(625, 413)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande38" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(713, 357)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande39" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(705, 367)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande40" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(687, 381)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande41" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1370, 315)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande42" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1358, 381)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande43" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1351, 390)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande25" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(109, 177)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande26" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(100, 173)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande27" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(154, 176)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande28" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(36, 136)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande29" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(42, 145)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande30" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(11, 131)
 texture = SubResource("AtlasTexture_fm1xl")
 
 [node name="AlgaBolaGrande11" type="Sprite2D" parent="AlgasEstaticas"]
@@ -282,6 +612,14 @@ texture = SubResource("AtlasTexture_fm1xl")
 
 [node name="AlgaBolaGrande12" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(1614, 610)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande44" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1581, 605)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande45" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1572, 613)
 texture = SubResource("AtlasTexture_fm1xl")
 
 [node name="AlgaBolaGrande13" type="Sprite2D" parent="AlgasEstaticas"]
@@ -368,6 +706,70 @@ texture = SubResource("AtlasTexture_fm1xl")
 position = Vector2(1148, 653)
 texture = SubResource("AtlasTexture_fm1xl")
 
+[node name="AlgaBolaGrande53" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2824, 530)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande54" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2833, 517)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande55" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2842, 519)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande56" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2859, 456)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande57" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2868, 462)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande58" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2879, 460)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande59" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2890, 458)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande60" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2904, 431)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande61" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2913, 435)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande62" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2922, 422)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande63" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2938, 406)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande64" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2992, 377)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande65" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3045, 358)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande66" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3056, 344)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande67" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3095, 334)
+texture = SubResource("AtlasTexture_fm1xl")
+
+[node name="AlgaBolaGrande68" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3106, 342)
+texture = SubResource("AtlasTexture_fm1xl")
+
 [node name="CincoAlgas" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(103, 174)
 texture = SubResource("AtlasTexture_erlwn")
@@ -384,8 +786,28 @@ texture = SubResource("AtlasTexture_erlwn")
 position = Vector2(903, 238)
 texture = SubResource("AtlasTexture_erlwn")
 
+[node name="CincoAlgas5" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1494, 621)
+texture = SubResource("AtlasTexture_erlwn")
+
 [node name="AlgaFolhasVerdeClaro" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(28, 118)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro6" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1944, 196)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro7" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1987, 172)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro8" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2100, 167)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro9" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2018, 189)
 texture = SubResource("AtlasTexture_bmx2w")
 
 [node name="AlgaFolhasVerdeClaro2" type="Sprite2D" parent="AlgasEstaticas"]
@@ -404,8 +826,40 @@ texture = SubResource("AtlasTexture_bmx2w")
 position = Vector2(1281, 589)
 texture = SubResource("AtlasTexture_bmx2w")
 
+[node name="AlgaFolhasVerdeClaro10" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2709, 384)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro11" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2721, 372)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro12" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2751, 328)
+texture = SubResource("AtlasTexture_bmx2w")
+
+[node name="AlgaFolhasVerdeClaro13" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2767, 276)
+texture = SubResource("AtlasTexture_bmx2w")
+
 [node name="AlgaBolaLaranja" type="Sprite2D" parent="AlgasEstaticas"]
 position = Vector2(80, 171)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja12" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(977, 624)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja13" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1061, 646)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja14" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(955, 642)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja11" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(269, 320)
 texture = SubResource("AtlasTexture_478vy")
 
 [node name="AlgaBolaLaranja2" type="Sprite2D" parent="AlgasEstaticas"]
@@ -444,142 +898,511 @@ texture = SubResource("AtlasTexture_478vy")
 position = Vector2(1804, 582)
 texture = SubResource("AtlasTexture_478vy")
 
+[node name="AlgaBolaLaranja15" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2348, 381)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja16" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2359, 366)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja17" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2412, 345)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja18" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2403, 350)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja19" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2443, 339)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja20" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2452, 345)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja21" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2504, 352)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja22" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2556, 375)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja23" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2493, 354)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja24" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2591, 380)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja25" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2582, 386)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja26" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2714, 385)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja27" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2725, 362)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja28" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2735, 343)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja29" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2747, 331)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja30" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2762, 292)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja31" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4112, 376)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja32" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4098, 392)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja33" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4084, 407)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja34" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4009, 426)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja35" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4017, 417)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja36" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4025, 423)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja37" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4035, 426)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja38" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4067, 422)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja39" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3517, 153)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja40" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3526, 161)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja41" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3567, 150)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja42" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3624, 155)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja43" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3631, 166)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja44" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3640, 161)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaLaranja45" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3715, 162)
+texture = SubResource("AtlasTexture_478vy")
+
+[node name="AlgaBolaRosa" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1419, 583)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa2" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1432, 591)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa3" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1580, 460)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa4" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2009, 379)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa5" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1865, 372)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa6" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(1993, 386)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa7" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2393, 345)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa8" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2406, 350)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa9" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2420, 344)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa10" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2434, 348)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa11" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2478, 348)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa12" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2493, 353)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa13" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2514, 362)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa14" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2547, 369)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa15" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2561, 379)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa16" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2575, 385)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa18" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3874, 617)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa19" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3744, 642)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa20" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3532, 641)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa21" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3465, 613)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa22" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4102, 603)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa23" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4156, 536)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa24" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4106, 378)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa25" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4093, 397)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa26" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(4079, 411)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa17" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(2591, 385)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa27" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3537, 160)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa28" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3551, 152)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa29" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3566, 157)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa30" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3626, 155)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa31" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3638, 163)
+texture = SubResource("AtlasTexture_hv8r0")
+
+[node name="AlgaBolaRosa32" type="Sprite2D" parent="AlgasEstaticas"]
+position = Vector2(3724, 160)
+texture = SubResource("AtlasTexture_hv8r0")
+
 [node name="Pedras" type="Node2D" parent="."]
 
 [node name="PedraMedia" type="Sprite2D" parent="Pedras"]
 position = Vector2(137, 172)
 texture = SubResource("AtlasTexture_d2e8s")
 
+[node name="PedraMedia6" type="Sprite2D" parent="Pedras"]
+position = Vector2(3188, 653)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia7" type="Sprite2D" parent="Pedras"]
+position = Vector2(3549, 655)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia8" type="Sprite2D" parent="Pedras"]
+position = Vector2(3608, 638)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia9" type="Sprite2D" parent="Pedras"]
+position = Vector2(3651, 621)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia2" type="Sprite2D" parent="Pedras"]
+position = Vector2(1845, 574)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia3" type="Sprite2D" parent="Pedras"]
+position = Vector2(1947, 366)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia4" type="Sprite2D" parent="Pedras"]
+position = Vector2(3078, 333)
+texture = SubResource("AtlasTexture_d2e8s")
+
+[node name="PedraMedia5" type="Sprite2D" parent="Pedras"]
+position = Vector2(3037, 366)
+texture = SubResource("AtlasTexture_d2e8s")
+
 [node name="PedraPequena" type="Sprite2D" parent="Pedras"]
 position = Vector2(157, 173)
 texture = SubResource("AtlasTexture_bky40")
+
+[node name="PedraBuracos" type="Sprite2D" parent="Pedras"]
+position = Vector2(2033, 597)
+texture = SubResource("AtlasTexture_00235")
+
+[node name="PedraBuracos2" type="Sprite2D" parent="Pedras"]
+position = Vector2(2969, 375)
+texture = SubResource("AtlasTexture_00235")
+
+[node name="PedraEmpilhada" type="Sprite2D" parent="Pedras"]
+position = Vector2(3019, 359)
+texture = SubResource("AtlasTexture_cuv8w")
+
+[node name="PedraEmpilhada2" type="Sprite2D" parent="Pedras"]
+position = Vector2(3143, 648)
+texture = SubResource("AtlasTexture_cuv8w")
 
 [node name="AlgasAnimadas" type="Node2D" parent="."]
 
 [node name="AlgaVerdePequena1" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(163, 173)
-sprite_frames = ExtResource("4_j4ckt")
+sprite_frames = SubResource("SpriteFrames_bkv00")
 autoplay = "default"
-frame_progress = 0.637155
+frame_progress = 0.968682
 
 [node name="AlgaVerdePequena4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1880, 573)
-sprite_frames = ExtResource("4_j4ckt")
+sprite_frames = SubResource("SpriteFrames_bkv00")
 autoplay = "default"
-frame_progress = 0.00612172
+frame_progress = 0.673114
 
 [node name="AlgaVerdePequena5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1867, 575)
-sprite_frames = ExtResource("4_j4ckt")
-autoplay = "default"
-frame_progress = 0.611871
+sprite_frames = SubResource("SpriteFrames_bkv00")
+frame_progress = 0.256903
 
 [node name="AlgaVerdePequena2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1261, 607)
-sprite_frames = ExtResource("4_j4ckt")
-autoplay = "default"
-frame_progress = 0.0134805
+sprite_frames = SubResource("SpriteFrames_bkv00")
+frame_progress = 0.953321
 
 [node name="AlgaVerdePequena3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1251, 615)
-sprite_frames = ExtResource("4_j4ckt")
+sprite_frames = SubResource("SpriteFrames_bkv00")
 autoplay = "default"
-frame_progress = 0.359271
+frame_progress = 0.778078
+
+[node name="AlgaVerdePequena6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3633, 624)
+sprite_frames = SubResource("SpriteFrames_bkv00")
+autoplay = "default"
+frame_progress = 0.997215
+
+[node name="AlgaVerdePequena7" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3724, 624)
+sprite_frames = SubResource("SpriteFrames_bkv00")
+autoplay = "default"
+frame_progress = 0.918012
 
 [node name="AlgaVerdeDupla" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(68, 148)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.87735
+frame_progress = 0.0660216
 
 [node name="AlgaVerdeDupla3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1813, 566)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.776842
+frame_progress = 0.191709
+
+[node name="AlgaVerdeDupla9" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3566, 645)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.620476
+
+[node name="AlgaVerdeDupla10" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3580, 651)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.649734
+
+[node name="AlgaVerdeDupla11" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3622, 625)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.387874
+
+[node name="AlgaVerdeDupla12" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3668, 615)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.343622
+
+[node name="AlgaVerdeDupla13" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3718, 612)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.080895
+
+[node name="AlgaVerdeDupla14" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(3732, 626)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.0138007
 
 [node name="AlgaVerdeDupla4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1829, 572)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.0832243
+frame_progress = 0.42653
 
 [node name="AlgaVerdeDupla5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1845, 565)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.110447
+frame_progress = 0.908078
+
+[node name="AlgaVerdeDupla7" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(2176, 166)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.923445
+
+[node name="AlgaVerdeDupla8" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(2187, 170)
+sprite_frames = SubResource("SpriteFrames_g5w8o")
+autoplay = "default"
+frame_progress = 0.457132
 
 [node name="AlgaVerdeDupla6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1900, 567)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.0955975
+frame_progress = 0.85461
 
 [node name="AlgaVerdeDupla2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(782, 309)
 sprite_frames = SubResource("SpriteFrames_g5w8o")
 autoplay = "default"
-frame_progress = 0.994018
+frame_progress = 0.492214
 
 [node name="AlgaPequenaClaro" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(174, 171)
 sprite_frames = SubResource("SpriteFrames_8omoh")
 autoplay = "default"
-frame_progress = 0.0233533
+frame_progress = 0.163217
 
 [node name="AlgaPequenaClaro2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(726, 339)
 sprite_frames = SubResource("SpriteFrames_8omoh")
 autoplay = "default"
-frame_progress = 0.26724
+frame_progress = 0.026758
 
 [node name="AlgaPequenaClaro3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2039, 604)
 sprite_frames = SubResource("SpriteFrames_8omoh")
 autoplay = "default"
-frame_progress = 0.85712
+frame_progress = 0.161361
 
 [node name="AlgaPequenaClaro4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2090, 540)
 sprite_frames = SubResource("SpriteFrames_8omoh")
 autoplay = "default"
-frame_progress = 0.621603
+frame_progress = 0.764204
+
+[node name="AlgaPequenaClaro6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
+position = Vector2(188, 172)
+sprite_frames = SubResource("SpriteFrames_8omoh")
+autoplay = "default"
+frame_progress = 0.374558
 
 [node name="AlgaPequenaClaro5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2101, 535)
 sprite_frames = SubResource("SpriteFrames_8omoh")
 autoplay = "default"
-frame_progress = 0.142508
+frame_progress = 0.491919
 
 [node name="AlgaPequenaEscuro" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(52, 140)
 sprite_frames = SubResource("SpriteFrames_ik0yc")
 autoplay = "default"
-frame_progress = 0.99281
+frame_progress = 0.000514267
 
 [node name="AlgaPequenaEscuro2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2009, 606)
 sprite_frames = SubResource("SpriteFrames_ik0yc")
 autoplay = "default"
-frame_progress = 0.0993069
+frame_progress = 0.634087
 
 [node name="AlgaPequenaEscuro3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2021, 605)
 sprite_frames = SubResource("SpriteFrames_ik0yc")
 autoplay = "default"
-frame_progress = 0.0559714
+frame_progress = 0.41783
 
 [node name="AlgaPequenaEscuro4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2059, 604)
 sprite_frames = SubResource("SpriteFrames_ik0yc")
 autoplay = "default"
-frame_progress = 0.713789
+frame_progress = 0.468436
 
 [node name="Esponjas" type="Node2D" parent="."]
 
 [node name="EsponjaRosaDir" type="Sprite2D" parent="Esponjas"]
 position = Vector2(212, 189)
+texture = SubResource("AtlasTexture_1squa")
+region_rect = Rect2(0, 0, 320, 180)
+
+[node name="EsponjaRosaDir7" type="Sprite2D" parent="Esponjas"]
+position = Vector2(243, 268)
 texture = SubResource("AtlasTexture_1squa")
 region_rect = Rect2(0, 0, 320, 180)
 
@@ -608,12 +1431,21 @@ position = Vector2(1944, 580)
 texture = SubResource("AtlasTexture_1squa")
 region_rect = Rect2(0, 0, 320, 180)
 
+[node name="EsponjaRosaDir8" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2210, 187)
+texture = SubResource("AtlasTexture_1squa")
+region_rect = Rect2(0, 0, 320, 180)
+
 [node name="EsponjaGrande" type="Sprite2D" parent="Esponjas"]
 position = Vector2(310, 350)
 texture = SubResource("AtlasTexture_0770d")
 
 [node name="EsponjaGrande3" type="Sprite2D" parent="Esponjas"]
 position = Vector2(1766, 574)
+texture = SubResource("AtlasTexture_0770d")
+
+[node name="EsponjaGrande4" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2136, 158)
 texture = SubResource("AtlasTexture_0770d")
 
 [node name="EsponjaGrande2" type="Sprite2D" parent="Esponjas"]
@@ -636,12 +1468,60 @@ texture = SubResource("AtlasTexture_kv3kk")
 position = Vector2(700, 363)
 texture = SubResource("AtlasTexture_kv3kk")
 
+[node name="EsponjaAmarelaDir4" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2221, 198)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir8" type="Sprite2D" parent="Esponjas"]
+position = Vector2(3654, 157)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir9" type="Sprite2D" parent="Esponjas"]
+position = Vector2(3581, 145)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir10" type="Sprite2D" parent="Esponjas"]
+position = Vector2(3735, 156)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir5" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2231, 210)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir6" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2490, 493)
+texture = SubResource("AtlasTexture_kv3kk")
+
+[node name="EsponjaAmarelaDir7" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2230, 558)
+texture = SubResource("AtlasTexture_kv3kk")
+
 [node name="EsponjaLaranjaEsq" type="Sprite2D" parent="Esponjas"]
 position = Vector2(618, 410)
 texture = SubResource("AtlasTexture_klx6h")
 
+[node name="EsponjaLaranjaEsq3" type="Sprite2D" parent="Esponjas"]
+position = Vector2(2245, 223)
+texture = SubResource("AtlasTexture_klx6h")
+
+[node name="EsponjaLaranjaEsq2" type="Sprite2D" parent="Esponjas"]
+position = Vector2(226, 221)
+texture = SubResource("AtlasTexture_klx6h")
+
 [node name="EsponjaLaranjaDir" type="Sprite2D" parent="Esponjas"]
 position = Vector2(371, 382)
+texture = SubResource("AtlasTexture_arhhp")
+
+[node name="EsponjaLaranjaDir2" type="Sprite2D" parent="Esponjas"]
+position = Vector2(4005, 623)
+texture = SubResource("AtlasTexture_arhhp")
+
+[node name="EsponjaLaranjaDir3" type="Sprite2D" parent="Esponjas"]
+position = Vector2(4085, 606)
+texture = SubResource("AtlasTexture_arhhp")
+
+[node name="EsponjaLaranjaDir4" type="Sprite2D" parent="Esponjas"]
+position = Vector2(4124, 573)
 texture = SubResource("AtlasTexture_arhhp")
 
 [node name="Corais" type="Node2D" parent="."]
@@ -686,6 +1566,14 @@ texture = SubResource("AtlasTexture_1ci5m")
 position = Vector2(1696, 368)
 texture = SubResource("AtlasTexture_1ci5m")
 
+[node name="CoralPequenoAmarelo12" type="Sprite2D" parent="Corais"]
+position = Vector2(1955, 622)
+texture = SubResource("AtlasTexture_1ci5m")
+
+[node name="CoralPequenoAmarelo13" type="Sprite2D" parent="Corais"]
+position = Vector2(2175, 414)
+texture = SubResource("AtlasTexture_1ci5m")
+
 [node name="CoralPequenoAmarelo11" type="Sprite2D" parent="Corais"]
 position = Vector2(1643, 374)
 texture = SubResource("AtlasTexture_1ci5m")
@@ -718,8 +1606,76 @@ texture = SubResource("AtlasTexture_fmlku")
 position = Vector2(933, 631)
 texture = SubResource("AtlasTexture_fmlku")
 
+[node name="Anemona6" type="Sprite2D" parent="Corais"]
+position = Vector2(1237, 617)
+texture = SubResource("AtlasTexture_fmlku")
+
+[node name="Anemona7" type="Sprite2D" parent="Corais"]
+position = Vector2(1752, 184)
+texture = SubResource("AtlasTexture_fmlku")
+
+[node name="Anemona8" type="Sprite2D" parent="Corais"]
+position = Vector2(2555, 470)
+texture = SubResource("AtlasTexture_fmlku")
+
 [node name="CoralVerdeAltoEsq" type="Sprite2D" parent="Corais"]
 position = Vector2(479, 426)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq9" type="Sprite2D" parent="Corais"]
+position = Vector2(256, 302)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq10" type="Sprite2D" parent="Corais"]
+position = Vector2(263, 312)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq11" type="Sprite2D" parent="Corais"]
+position = Vector2(272, 329)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq12" type="Sprite2D" parent="Corais"]
+position = Vector2(285, 354)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq8" type="Sprite2D" parent="Corais"]
+position = Vector2(2176, 400)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq13" type="Sprite2D" parent="Corais"]
+position = Vector2(1809, 345)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq14" type="Sprite2D" parent="Corais"]
+position = Vector2(1821, 351)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq15" type="Sprite2D" parent="Corais"]
+position = Vector2(1870, 388)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq16" type="Sprite2D" parent="Corais"]
+position = Vector2(1970, 374)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq17" type="Sprite2D" parent="Corais"]
+position = Vector2(1959, 378)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq18" type="Sprite2D" parent="Corais"]
+position = Vector2(1922, 383)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq19" type="Sprite2D" parent="Corais"]
+position = Vector2(1776, 226)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq21" type="Sprite2D" parent="Corais"]
+position = Vector2(1765, 201)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq20" type="Sprite2D" parent="Corais"]
+position = Vector2(1786, 236)
 texture = SubResource("AtlasTexture_3dbri")
 
 [node name="CoralVerdeAltoEsq3" type="Sprite2D" parent="Corais"]
@@ -744,6 +1700,114 @@ texture = SubResource("AtlasTexture_3dbri")
 
 [node name="CoralVerdeAltoEsq2" type="Sprite2D" parent="Corais"]
 position = Vector2(1680, 361)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq22" type="Sprite2D" parent="Corais"]
+position = Vector2(3380, 629)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq23" type="Sprite2D" parent="Corais"]
+position = Vector2(3393, 640)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq24" type="Sprite2D" parent="Corais"]
+position = Vector2(3407, 644)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq25" type="Sprite2D" parent="Corais"]
+position = Vector2(3448, 635)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq26" type="Sprite2D" parent="Corais"]
+position = Vector2(3460, 626)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq27" type="Sprite2D" parent="Corais"]
+position = Vector2(3475, 618)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq28" type="Sprite2D" parent="Corais"]
+position = Vector2(3490, 610)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq29" type="Sprite2D" parent="Corais"]
+position = Vector2(3521, 632)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq30" type="Sprite2D" parent="Corais"]
+position = Vector2(3532, 646)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq31" type="Sprite2D" parent="Corais"]
+position = Vector2(3789, 646)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq32" type="Sprite2D" parent="Corais"]
+position = Vector2(3840, 642)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq33" type="Sprite2D" parent="Corais"]
+position = Vector2(3798, 656)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq34" type="Sprite2D" parent="Corais"]
+position = Vector2(3853, 635)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq35" type="Sprite2D" parent="Corais"]
+position = Vector2(3864, 626)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq36" type="Sprite2D" parent="Corais"]
+position = Vector2(3876, 628)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq37" type="Sprite2D" parent="Corais"]
+position = Vector2(3888, 622)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq38" type="Sprite2D" parent="Corais"]
+position = Vector2(3900, 614)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq39" type="Sprite2D" parent="Corais"]
+position = Vector2(3950, 614)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq40" type="Sprite2D" parent="Corais"]
+position = Vector2(3960, 624)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq41" type="Sprite2D" parent="Corais"]
+position = Vector2(3969, 640)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq42" type="Sprite2D" parent="Corais"]
+position = Vector2(3982, 635)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq43" type="Sprite2D" parent="Corais"]
+position = Vector2(3995, 638)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq44" type="Sprite2D" parent="Corais"]
+position = Vector2(4010, 633)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq45" type="Sprite2D" parent="Corais"]
+position = Vector2(4019, 643)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq46" type="Sprite2D" parent="Corais"]
+position = Vector2(4034, 646)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq47" type="Sprite2D" parent="Corais"]
+position = Vector2(4047, 643)
+texture = SubResource("AtlasTexture_3dbri")
+
+[node name="CoralVerdeAltoEsq48" type="Sprite2D" parent="Corais"]
+position = Vector2(4059, 630)
 texture = SubResource("AtlasTexture_3dbri")
 
 [node name="CoralAmareloAltoDir" type="Sprite2D" parent="Corais"]
@@ -772,6 +1836,34 @@ texture = SubResource("AtlasTexture_u0nxi")
 
 [node name="CoralAmareloAltoDir6" type="Sprite2D" parent="Corais"]
 position = Vector2(1485, 194)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir8" type="Sprite2D" parent="Corais"]
+position = Vector2(1795, 246)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir9" type="Sprite2D" parent="Corais"]
+position = Vector2(1797, 264)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir10" type="Sprite2D" parent="Corais"]
+position = Vector2(2915, 558)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir11" type="Sprite2D" parent="Corais"]
+position = Vector2(2918, 570)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir12" type="Sprite2D" parent="Corais"]
+position = Vector2(2996, 629)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir13" type="Sprite2D" parent="Corais"]
+position = Vector2(3297, 632)
+texture = SubResource("AtlasTexture_u0nxi")
+
+[node name="CoralAmareloAltoDir14" type="Sprite2D" parent="Corais"]
+position = Vector2(3427, 629)
 texture = SubResource("AtlasTexture_u0nxi")
 
 [node name="CoralVerdeAltoDir" type="Sprite2D" parent="Corais"]
@@ -822,20 +1914,211 @@ texture = SubResource("AtlasTexture_x4un0")
 position = Vector2(1086, 640)
 texture = SubResource("AtlasTexture_x4un0")
 
-[node name="ConchasEAnimais" type="Node2D" parent="."]
+[node name="CoralVerdeAltoDir13" type="Sprite2D" parent="Corais"]
+position = Vector2(2929, 591)
+texture = SubResource("AtlasTexture_x4un0")
 
-[node name="ConchaRosa" type="Sprite2D" parent="ConchasEAnimais"]
+[node name="CoralVerdeAltoDir14" type="Sprite2D" parent="Corais"]
+position = Vector2(2937, 598)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir15" type="Sprite2D" parent="Corais"]
+position = Vector2(2948, 611)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir16" type="Sprite2D" parent="Corais"]
+position = Vector2(2961, 630)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir17" type="Sprite2D" parent="Corais"]
+position = Vector2(2973, 638)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir18" type="Sprite2D" parent="Corais"]
+position = Vector2(2982, 640)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir19" type="Sprite2D" parent="Corais"]
+position = Vector2(3015, 626)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir20" type="Sprite2D" parent="Corais"]
+position = Vector2(3028, 632)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir21" type="Sprite2D" parent="Corais"]
+position = Vector2(3040, 639)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir22" type="Sprite2D" parent="Corais"]
+position = Vector2(3052, 646)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir23" type="Sprite2D" parent="Corais"]
+position = Vector2(3064, 653)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir24" type="Sprite2D" parent="Corais"]
+position = Vector2(3074, 650)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir25" type="Sprite2D" parent="Corais"]
+position = Vector2(3087, 659)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir26" type="Sprite2D" parent="Corais"]
+position = Vector2(3100, 666)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir27" type="Sprite2D" parent="Corais"]
+position = Vector2(3114, 668)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir28" type="Sprite2D" parent="Corais"]
+position = Vector2(3203, 666)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir29" type="Sprite2D" parent="Corais"]
+position = Vector2(3242, 663)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir30" type="Sprite2D" parent="Corais"]
+position = Vector2(3254, 650)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir31" type="Sprite2D" parent="Corais"]
+position = Vector2(3266, 640)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir32" type="Sprite2D" parent="Corais"]
+position = Vector2(3276, 634)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir33" type="Sprite2D" parent="Corais"]
+position = Vector2(3287, 636)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir34" type="Sprite2D" parent="Corais"]
+position = Vector2(3310, 642)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir35" type="Sprite2D" parent="Corais"]
+position = Vector2(3322, 645)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir36" type="Sprite2D" parent="Corais"]
+position = Vector2(3333, 631)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralVerdeAltoDir37" type="Sprite2D" parent="Corais"]
+position = Vector2(3347, 628)
+texture = SubResource("AtlasTexture_x4un0")
+
+[node name="CoralRoxo" type="Sprite2D" parent="Corais"]
+position = Vector2(1128, 626)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo2" type="Sprite2D" parent="Corais"]
+position = Vector2(1670, 350)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo3" type="Sprite2D" parent="Corais"]
+position = Vector2(1591, 607)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo4" type="Sprite2D" parent="Corais"]
+position = Vector2(1677, 606)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo5" type="Sprite2D" parent="Corais"]
+position = Vector2(1550, 627)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo6" type="Sprite2D" parent="Corais"]
+position = Vector2(2311, 365)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo7" type="Sprite2D" parent="Corais"]
+position = Vector2(2371, 365)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo8" type="Sprite2D" parent="Corais"]
+position = Vector2(2383, 371)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo9" type="Sprite2D" parent="Corais"]
+position = Vector2(2244, 323)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo10" type="Sprite2D" parent="Corais"]
+position = Vector2(2456, 509)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo11" type="Sprite2D" parent="Corais"]
+position = Vector2(2476, 515)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo12" type="Sprite2D" parent="Corais"]
+position = Vector2(4072, 614)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo13" type="Sprite2D" parent="Corais"]
+position = Vector2(4137, 565)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRoxo14" type="Sprite2D" parent="Corais"]
+position = Vector2(4110, 595)
+texture = SubResource("AtlasTexture_bxtnm")
+
+[node name="CoralRedondoRosa" type="Sprite2D" parent="Corais"]
+position = Vector2(2282, 345)
+texture = SubResource("AtlasTexture_qrfj8")
+
+[node name="CoralRedondoRosa2" type="Sprite2D" parent="Corais"]
+position = Vector2(2257, 331)
+texture = SubResource("AtlasTexture_qrfj8")
+
+[node name="CoralRedondoRosa3" type="Sprite2D" parent="Corais"]
+position = Vector2(2327, 376)
+texture = SubResource("AtlasTexture_qrfj8")
+
+[node name="Diversos" type="Node2D" parent="."]
+
+[node name="ConchaRosa" type="Sprite2D" parent="Diversos"]
 position = Vector2(609, 411)
 texture = SubResource("AtlasTexture_mfhvj")
 
-[node name="ConchaRosa2" type="Sprite2D" parent="ConchasEAnimais"]
-position = Vector2(1098, 619)
+[node name="ConchaRosa2" type="Sprite2D" parent="Diversos"]
+position = Vector2(1098, 621)
 texture = SubResource("AtlasTexture_mfhvj")
 
-[node name="CavaloMarinho" type="AnimatedSprite2D" parent="ConchasEAnimais"]
+[node name="CavaloMarinho" type="AnimatedSprite2D" parent="Diversos"]
 position = Vector2(349, 356)
 sprite_frames = SubResource("SpriteFrames_xxc0d")
-frame_progress = 0.574392
+autoplay = "default"
+frame_progress = 0.0327391
+
+[node name="CavaloMarinho2" type="AnimatedSprite2D" parent="Diversos"]
+position = Vector2(1174, 648)
+sprite_frames = SubResource("SpriteFrames_xxc0d")
+autoplay = "default"
+frame_progress = 0.50389
+
+[node name="Ancora" type="Sprite2D" parent="Diversos"]
+position = Vector2(2876, 456)
+texture = SubResource("AtlasTexture_i0rq1")
+
+[node name="Tartaruga" type="AnimatedSprite2D" parent="Diversos"]
+position = Vector2(913, 238)
+sprite_frames = SubResource("SpriteFrames_8g6yt")
+autoplay = "default"
+frame_progress = 0.560219
+
+[node name="CavaloMarinhoVermelho" type="AnimatedSprite2D" parent="Diversos"]
+position = Vector2(2341, 367)
+sprite_frames = SubResource("SpriteFrames_j3aki")
+autoplay = "default"
+frame_progress = 0.745147
 
 [node name="TrashManager" parent="." instance=ExtResource("8_ae35d")]
 _trashPrefab = ExtResource("4_7ughu")
