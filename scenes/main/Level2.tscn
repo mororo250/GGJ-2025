@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_lauqo"]
 [ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="2_3vtn8"]
 [ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="4_7ughu"]
-[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
+[ext_resource type="PackedScene" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
 [ext_resource type="PackedScene" uid="uid://clsjaw8mnh6y8" path="res://scenes/agents/Shark.tscn" id="6_3v1wl"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_ypwqx"]
 [ext_resource type="PackedScene" uid="uid://46846brmmr2o" path="res://scenes/agents/LightFish.tscn" id="7_a8sx5"]
@@ -222,10 +222,5 @@ position = Vector2(2531, 362)
 
 [node name="BubbleSpawner5" parent="BubblesManager" instance=ExtResource("9_ba07d")]
 position = Vector2(550, 395)
-
-[connection signal="SpawnTrash" from="Penguin/Penguin" to="TrashManager" method="SpawnTrash"]
-[connection signal="SpawnTrash" from="Penguin/Penguin2" to="TrashManager" method="SpawnTrash"]
-[connection signal="SpawnTrash" from="Penguin/Penguin3" to="TrashManager" method="SpawnTrash"]
-[connection signal="SpawnTrash" from="Penguin/Penguin4" to="TrashManager" method="SpawnTrash"]
 
 [editable path="Map"]
