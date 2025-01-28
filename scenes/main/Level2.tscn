@@ -258,7 +258,7 @@ script = ExtResource("1_ipyo5")
 _playerPos = NodePath("PlayerPos")
 
 [node name="PlayerPos" type="Node2D" parent="."]
-position = Vector2(3333, 325)
+position = Vector2(150, 90)
 
 [node name="ParallaxBackgorund" parent="." instance=ExtResource("1_lauqo")]
 

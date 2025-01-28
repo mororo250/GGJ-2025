@@ -22,4 +22,4 @@ shape = SubResource("CircleShape2D_rlx0d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_c1ciy")
-animation = &"Plastico"
+animation = &"Canudao"

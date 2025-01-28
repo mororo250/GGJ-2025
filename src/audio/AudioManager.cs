@@ -17,6 +17,11 @@ public partial class AudioManager : Node2D
 	private const float MinVolumeDb = -80.0f; // Equivalent to 0% volume
 	private const float MaxVolumeDb = 0.0f;   // 100% volume
 	
+	private bool _isPlayingMusic = false;
+	private bool _changingMusic = false;
+	private AudioType _nextMusicType;
+	private float _nextMusicVolume;
+	
 	public override void _Ready()
 	{
 		_instance = this;
@@ -60,7 +65,7 @@ public partial class AudioManager : Node2D
 
 		player.Stream     = _audioResources[(int)audioType];
 		player.VolumeDb   = GetVolumeDbFromPercievedLinear(linearVolume);
-		player.PitchScale = 1.0f + GD.Randf() * 0.1f; // Small pitch variation
+		player.PitchScale = 1.0f; // Small pitch variation
 
 		player.Play();
 		if (player.Stream  is AudioStreamWav streamWav)
@@ -85,7 +90,7 @@ public partial class AudioManager : Node2D
 		player.GlobalPosition = globalPosition;
 		player.MaxDistance    = radius;
 		player.VolumeDb       = GetVolumeDbFromPercievedLinear(linearVolume);
-		player.PitchScale     = 1.0f + GD.Randf() * 0.1f; // Small pitch variation
+		player.PitchScale     = 1.0f; // Small pitch variation
 
 		player.Finished += player.QueueFree;
 		player.Play();
@@ -104,7 +109,7 @@ public partial class AudioManager : Node2D
 		player.GlobalPosition = globalPosition;
 		player.MaxDistance    = radius;
 		player.VolumeDb       = GetVolumeDbFromPercievedLinear(linearVolume);
-		player.PitchScale     = 1.0f + GD.Randf() * 0.1f; // Small pitch variation
+		player.PitchScale     = 1.0f; // Small pitch variation
 		player.Play();
 
 		if (player.Stream  is AudioStreamWav streamWav)
@@ -117,19 +122,44 @@ public partial class AudioManager : Node2D
 
 		return player;
 	}
-	
+
+	public override void _Process(double delta)
+	{
+		if (_changingMusic)
+		{
+			_musicPlayer.VolumeDb -= 80 * (float)delta;
+			if (_musicPlayer.VolumeDb <= MinVolumeDb)
+			{
+				_changingMusic = false;
+				ChangeMusic(_nextMusicType, _nextMusicVolume);
+			}
+		}
+	}
+
 	public void StopMusic()
 	{
 		_musicPlayer.Stop();
+		_isPlayingMusic = false;
 	}
 
 	public void PlayMusic(AudioType audioType, float linearVolume = 0.4f)
 	{
-		Debug.Assert(linearVolume >= 0.0f && linearVolume <= 1.0f);
-		
+		if (true) // Crossfading still not working
+		{
+			ChangeMusic(audioType, linearVolume);
+			return;
+		}
+		_changingMusic = true;
+		_nextMusicType = audioType;
+		_nextMusicVolume = linearVolume;
+	}
+	
+	private void ChangeMusic(AudioType audioType, float linearVolume = 0.4f)
+	{
+		_isPlayingMusic = true;
 		_musicPlayer.Stop();
-		_musicPlayer.Stream     = _audioResources[(int)audioType];
-		_musicPlayer.VolumeDb   = GetVolumeDbFromPercievedLinear(linearVolume);
+		_musicPlayer.Stream   = _audioResources[(int)audioType];
+		_musicPlayer.VolumeDb = GetVolumeDbFromPercievedLinear(linearVolume);
 		_musicPlayer.Play();
 
 		if (_musicPlayer.Stream is AudioStreamWav streamWav)
@@ -142,7 +172,7 @@ public partial class AudioManager : Node2D
 	
 	private float GetVolumeDbFromPercievedLinear(float linearVolume)
 	{
-		float adjustedVolume = Mathf.Pow(Mathf.Clamp(linearVolume,0f, 1f), 0.33f); 
-		return Mathf.Lerp(-80.0f, 0.0f, adjustedVolume);	
+		float adjustedVolume = Mathf.Pow(Mathf.Clamp(linearVolume,0f, 1f), 0.33f);
+		return Mathf.Lerp(-80.0f, 0.0f, adjustedVolume);
 	}
 }
