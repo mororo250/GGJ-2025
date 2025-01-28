@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://dlicwcbcwvfgi"]
+[gd_scene load_steps=66 format=4 uid="uid://dlicwcbcwvfgi"]
 
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_4sbki"]
 [ext_resource type="Script" path="res://src/main/Level.cs" id="1_ssoje"]
@@ -13,14 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://d1bt1sdfttxei" path="res://scenes/agents/LifeFish.tscn" id="8_sijng"]
 [ext_resource type="PackedScene" uid="uid://rgerf73r5d1i" path="res://scenes/tutorial/tutorial.tscn" id="10_0ifkg"]
 [ext_resource type="Texture2D" uid="uid://c8fys88e3hl1e" path="res://assets/scenario/elementos_cenario.png" id="11_26rl3"]
+[ext_resource type="Script" path="res://scenes/tutorial/Tutorial.cs" id="14_0cf7y"]
+[ext_resource type="FontFile" uid="uid://c48eg5fh5424e" path="res://assets/ui/font/good_old_dos/Good Old DOS Smooth.ttf" id="16_3djwv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjvlc"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(80, 80, 32, 32)
+region = Rect2(80, 81, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca4b4"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(144, 48, 16, 32)
+region = Rect2(144, 49, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpx4b"]
 atlas = ExtResource("11_26rl3")
@@ -28,7 +30,7 @@ region = Rect2(80, 32, 48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6iq6"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(112, 48, 32, 32)
+region = Rect2(112, 58, 32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txu68"]
 atlas = ExtResource("11_26rl3")
@@ -100,72 +102,72 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vea38"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo4ls"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(0, 17, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qufjh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ne0"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(16, 16, 16, 16)
+region = Rect2(16, 17, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_thopk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dsrg"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(32, 17, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohic0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag6j8"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(48, 16, 16, 16)
+region = Rect2(48, 17, 16, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n0qe3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vea38")
+"texture": SubResource("AtlasTexture_mo4ls")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qufjh")
+"texture": SubResource("AtlasTexture_h3ne0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_thopk")
+"texture": SubResource("AtlasTexture_3dsrg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ohic0")
+"texture": SubResource("AtlasTexture_ag6j8")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tauj1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f2xa"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(0, 34, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vl1pa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tjgu"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(16, 32, 16, 16)
+region = Rect2(16, 34, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xh0dn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tr6w"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(32, 32, 16, 16)
+region = Rect2(32, 34, 16, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ly0y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv160"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(48, 32, 16, 16)
+region = Rect2(48, 34, 16, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0uxm5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tauj1")
+"texture": SubResource("AtlasTexture_3f2xa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vl1pa")
+"texture": SubResource("AtlasTexture_1tjgu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xh0dn")
+"texture": SubResource("AtlasTexture_6tr6w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ly0y")
+"texture": SubResource("AtlasTexture_yv160")
 }],
 "loop": true,
 "name": &"default",
@@ -198,11 +200,11 @@ region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnops"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(144, 16, 16, 16)
+region = Rect2(144, 17, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkh62"]
 atlas = ExtResource("11_26rl3")
-region = Rect2(112, 112, 32, 32)
+region = Rect2(112, 114, 32, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujibw"]
 atlas = ExtResource("11_26rl3")
@@ -286,13 +288,16 @@ b = Vector2(4200, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptk46"]
 radius = 5.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_udtf4"]
+viewport_path = NodePath("Tutorial/Fish/SubViewport")
+
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("_playerPos")]
 texture_filter = 1
 script = ExtResource("1_ssoje")
 _playerPos = NodePath("PlayerPos")
 
 [node name="PlayerPos" type="Node2D" parent="."]
-position = Vector2(2904, 204)
+position = Vector2(214, 127)
 
 [node name="ParallaxBackgorund" parent="." instance=ExtResource("1_4sbki")]
 
@@ -1763,10 +1768,9 @@ position = Vector2(-237, -20)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4"]
-position = Vector2(672, -65)
+position = Vector2(805, -65)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints4/Point2"]
-position = Vector2(136, 3)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints5" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1779,10 +1783,9 @@ position = Vector2(-237, -20)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5"]
-position = Vector2(672, -65)
+position = Vector2(539, -18)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints5/Point2"]
-position = Vector2(88, 5)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints6" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1825,10 +1828,9 @@ position = Vector2(-241, 1)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7"]
-position = Vector2(684, -13)
+position = Vector2(782, -13)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints7/Point2"]
-position = Vector2(87, 0)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints8" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -1841,10 +1843,9 @@ position = Vector2(-241, 1)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="Point2" type="Area2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8"]
-position = Vector2(684, -13)
+position = Vector2(781, -7)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/PatrolPoints/StringayPatrolPoints8/Point2"]
-position = Vector2(97, 3)
 shape = SubResource("CircleShape2D_ptk46")
 
 [node name="StringayPatrolPoints10" type="Node2D" parent="Enemies/PatrolPoints"]
@@ -2005,6 +2006,53 @@ position = Vector2(3384, 317)
 
 [node name="Tutorial" parent="." instance=ExtResource("10_0ifkg")]
 
+[node name="Fish" type="Node2D" parent="Tutorial"]
+position = Vector2(3746, 181)
+script = ExtResource("14_0cf7y")
+
+[node name="TutorialText" type="Sprite2D" parent="Tutorial/Fish"]
+position = Vector2(0, -5)
+texture = SubResource("ViewportTexture_udtf4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Tutorial/Fish"]
+position = Vector2(-52, -32)
+rect = Rect2(-10, -10, 100, 65)
+
+[node name="SubViewport" type="SubViewport" parent="Tutorial/Fish"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(124, 36)
+
+[node name="Control" type="Control" parent="Tutorial/Fish/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Tutorial/Fish/SubViewport/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.435294, 0.435294, 0.435294, 0)
+theme_override_fonts/font = ExtResource("16_3djwv")
+theme_override_font_sizes/font_size = 14
+text = "Catch fishes to heal!
+"
+vertical_alignment = 1
+autowrap_mode = 3
+
 [connection signal="SpawnTrash" from="Agents/Penguin" to="TrashManager" method="SpawnTrash"]
+[connection signal="SpawnTrash" from="Agents/Penguin2" to="TrashManager" method="SpawnTrash"]
+[connection signal="screen_entered" from="Tutorial/Fish/VisibleOnScreenNotifier2D" to="Tutorial/Fish" method="OnEnterScreen"]
 
 [editable path="Map"]
