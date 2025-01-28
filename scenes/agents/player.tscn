@@ -1,14 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://cx0ilp71jq5ck"]
+[gd_scene load_steps=21 format=3 uid="uid://cx0ilp71jq5ck"]
 
 [ext_resource type="Script" path="res://src/agents/Player.cs" id="1_0mgrt"]
 [ext_resource type="Script" path="res://src/agents/Chain.cs" id="2_lv8g0"]
 [ext_resource type="Texture2D" uid="uid://dbwhpvmrsnpmg" path="res://assets/player/Gancho.png" id="3_fvx15"]
 [ext_resource type="Texture2D" uid="uid://hhcwyurve760" path="res://assets/player/Submarino.png" id="4_7hhma"]
 [ext_resource type="Texture2D" uid="uid://dc2weh6k1y33p" path="res://assets/player/Corrente.png" id="4_mx36n"]
-[ext_resource type="AudioStream" uid="uid://bkbci0de733rk" path="res://assets/audio/SFX/SFX_InGame_SubmarineEngine_Loop.wav" id="6_8y22n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6pvqm"]
 bounce = 1.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6bdv"]
+radius = 18.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xasv"]
 
@@ -104,9 +106,6 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ry2yf"]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j6bdv"]
-radius = 18.0
-
 [node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("_sprite2D", "_chain")]
 texture_filter = 1
 physics_material_override = SubResource("PhysicsMaterial_6pvqm")
@@ -119,6 +118,10 @@ linear_damp = 0.2
 script = ExtResource("1_0mgrt")
 _sprite2D = NodePath("SubSprite")
 _chain = NodePath("Chain")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_j6bdv")
 
 [node name="Chain" type="Node2D" parent="." node_paths=PackedStringArray("_chainTip", "_chainTipArea", "_chainTipSprite", "_chainSprite")]
 position = Vector2(0, 8)
@@ -172,14 +175,7 @@ texture_repeat = 2
 texture = ExtResource("4_7hhma")
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
-shape = SubResource("CircleShape2D_j6bdv")
-
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_8y22n")
 
 [connection signal="body_entered" from="." to="." method="HandleCollisisonAgainstTerrain"]

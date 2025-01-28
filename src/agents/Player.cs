@@ -47,7 +47,8 @@ public partial class Player : RigidBody2D
 	[Export]private double _flashDuration   = 0.1;
 	private         uint _flashCounter    = 0;
 	[Export]private uint _numberOfFlashes = 5;
-	private         bool  _flash           = false;
+	private         bool  _flashHit       = false;
+	private         bool  _flashHeal       = false;
 	
 	AudioStreamPlayer _soundPlayer;
 
@@ -67,7 +68,7 @@ public partial class Player : RigidBody2D
 		else
 		{
 			_health -= damage;
-			_flash  =  true;
+			_flashHit  =  true;
 		}
 		AudioManager.Instance.PlaySFX(AudioType.Damage, GlobalPosition, 200, 0.35f);
 	}
@@ -75,12 +76,15 @@ public partial class Player : RigidBody2D
 	public override void _Ready()
 	{
 		_chain.TrashCollected += OnTrashColected;
+		_chain.FishCollected  += OnFishCollected;
 		_soundPlayer          =  AudioManager.Instance.PlayGlobalSFXLoop(AudioType.Submarine, 0.3f);
 		Init();
 	}
 
 	public void Init()
 	{
+		_movementDirection = MovementDirection.None;
+		EmitSignal(SignalName.TrashCollected, 0); // Bad code just a fast wat to update ui 
 		_trashCount	   = 0;
 		_oxygen          = _oxygenMaxValue;
 		_health          = _healthMaxValue;
@@ -93,7 +97,7 @@ public partial class Player : RigidBody2D
 
 	private void Flash(double delta)
 	{
-		if (_flash)
+		if (_flashHit)
 		{
 			_flashTime += delta;
 			if (_flashTime >= _flashDuration)
@@ -102,7 +106,7 @@ public partial class Player : RigidBody2D
 				{
 					_flashTime		   = 1;
 					_flashCounter      = 0;
-					_flash             = false;
+					_flashHit             = false;
 					_sprite2D.Modulate = Colors.White;
 					return;
 				}
@@ -110,6 +114,25 @@ public partial class Player : RigidBody2D
 				_flashTime = 0;
 				_flashCounter++;
 				_sprite2D.Modulate = _sprite2D.Modulate == Colors.White ? Colors.Red : Colors.White;
+			}
+		}
+		if (_flashHeal)
+		{
+			_flashTime += delta;
+			if (_flashTime >= _flashDuration)
+			{
+				if (_flashCounter >= _numberOfFlashes)
+				{
+					_flashTime		   = 1;
+					_flashCounter      = 0;
+					_flashHeal             = false;
+					_sprite2D.Modulate = Colors.White;
+					return;
+				}
+				
+				_flashTime = 0;
+				_flashCounter++;
+				_sprite2D.Modulate = _sprite2D.Modulate == Colors.White ? Colors.Green : Colors.White;
 			}
 		}
 	}
@@ -228,6 +251,14 @@ public partial class Player : RigidBody2D
 	{
 		_trashCount++;
 		EmitSignal(SignalName.TrashCollected, _trashCount);
+	}
+	
+	public void OnFishCollected()
+	{
+		_flashHeal = true;
+		_health += 250;
+		if (_health > _healthMaxValue)
+			_health = _healthMaxValue;
 	}
 
 	private void HandleCollisisonAgainstTerrain(Node body)

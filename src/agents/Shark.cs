@@ -19,7 +19,7 @@ public partial class Shark : CharacterBody2D
 	[Export] private float  _attackSpeed  = 65; //  pixels per seconds
 	[Export] private uint   _cooldownTime = 90;  // frames
 	[Export] private uint   _attackDamage = 250; 
-	[Export] private uint   _attackRange  = 450; // pixels
+	[Export] private uint   _attackRange  = 300; // pixels
 	private          Player _player;
 	private          uint   _currentCooldownTime = 0; // frames
 	
@@ -152,7 +152,8 @@ public partial class Shark : CharacterBody2D
 		if (_currentCooldownTime > 0)
 			return;
 		
-		if (GlobalPosition.DistanceTo(_patrolPath[_currentPatrolPoint].GlobalPosition) > _attackRange)
+		int closestPatrolPoint = ClosestPatrolPoint();
+		if (GlobalPosition.DistanceTo(_patrolPath[closestPatrolPoint].GlobalPosition) > _attackRange)
 			return;
 		
 		

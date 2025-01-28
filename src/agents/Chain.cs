@@ -13,13 +13,15 @@ public partial class Chain : Node2D
 	[Export] private Sprite2D         _chainSprite;
 	[Export] private int              _chainMaxLength = 16;
 
-	private          float        _length = 0;
-	private          bool		  _isChaining;
+	private float _length = 0;
+	private bool  _isChaining;
 	private Trash _collectedTrash;
+	private Fish  _fish;
 	
 	private AudioStreamPlayer2D _soundPlayer;
 	
 	[Signal] public delegate void TrashCollectedEventHandler();
+	[Signal] public delegate void FishCollectedEventHandler();
 
 	public float Length
 	{
@@ -40,8 +42,11 @@ public partial class Chain : Node2D
 		if (_collectedTrash != null)
 			_collectedTrash.GlobalPosition = _chainTip.GlobalPosition;
 		
+		if (_fish != null)
+			_fish.GlobalPosition = _chainTip.GlobalPosition;
+		
 		UpdateChainLength();
-		FreeTrash();
+		FreeChainCollected();
 	}
 	
 	private void UpdateChainLength()
@@ -64,13 +69,19 @@ public partial class Chain : Node2D
 		}
 	}
 
-	private void FreeTrash()
+	private void FreeChainCollected()
 	{
 		if (_length == 0 && _collectedTrash != null)
 		{
 			EmitSignal(SignalName.TrashCollected);
 			_collectedTrash.QueueFree();
 			_collectedTrash = null;
+		}
+		if (_length == 0 && _fish != null)
+		{
+			EmitSignal(SignalName.FishCollected);
+			_fish.QueueFree();
+			_fish = null;
 		}
 	}
 
@@ -87,6 +98,21 @@ public partial class Chain : Node2D
 					_collectedTrash.SetFreeze(true);
 					break;
 				}
+				if (node is Fish fish)
+				{
+					_fish = fish;
+					break;
+				}
+			}
+			
+			Array<Area2D> areas = _chainTipArea.GetOverlappingAreas();
+			foreach (var area in areas)
+			{
+				if (area.GetParent() is Fish fish)
+				{
+					_fish = fish;
+					break;
+				}
 			}
 
 			if (_isChaining != isChaning)
@@ -97,6 +123,7 @@ public partial class Chain : Node2D
 					_soundPlayer.QueueFree();
 				}
 
+				_chainTipSprite.Play("Closing");
 				_soundPlayer = AudioManager.Instance.PlaySFX(AudioType.Chain, GlobalPosition,
 					600, 0.6f);
 			}
@@ -105,6 +132,17 @@ public partial class Chain : Node2D
 		{
 			if (_isChaining != isChaning)
 			{
+				if (_collectedTrash != null)
+				{
+					_collectedTrash.SetFreeze(false);
+					_collectedTrash = null;
+				}
+				if (_fish != null)
+				{
+					_fish.ProcessMode = Node.ProcessModeEnum.Inherit;
+					_fish = null;
+				}
+				
 				_chainTipSprite.Play("Opening");
 				
 				if (_soundPlayer != null && IsInstanceValid(_soundPlayer))

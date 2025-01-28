@@ -22,6 +22,7 @@ public partial class GameOver : Control
 		if (Visible)
 		{
 			_gameNode.ProcessMode = Node.ProcessModeEnum.Disabled;
+			AudioManager.Instance.StopMusic();
 			AudioManager.Instance.PlayGlobalSFX(AudioType.GameOver, 0.6f);
 		}
 		else

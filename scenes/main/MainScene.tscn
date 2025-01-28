@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://lfhk5f000cdo" path="res://scenes/camera/camera2D.tscn" id="1_dgmxc"]
 [ext_resource type="Script" path="res://src/main/MainScene.cs" id="1_kkplw"]
 [ext_resource type="PackedScene" uid="uid://cx0ilp71jq5ck" path="res://scenes/agents/player.tscn" id="1_y1hli"]
-[ext_resource type="PackedScene" uid="uid://dlicwcbcwvfgi" path="res://scenes/main/Level1.tscn" id="2_4y5nm"]
+[ext_resource type="PackedScene" uid="uid://dlicwcbcwvfgi" path="res://scenes/main/Level1.tscn" id="2_xdt4c"]
 [ext_resource type="PackedScene" uid="uid://feih5fcntmg" path="res://scenes/main/Level2.tscn" id="3_y6q5d"]
 [ext_resource type="PackedScene" uid="uid://g2rinuspey20" path="res://scenes/main/GameOver.tscn" id="6_i2rv7"]
 [ext_resource type="PackedScene" uid="uid://cqfnjmp15gr8c" path="res://scenes/main/WinScreen.tscn" id="7_mkve2"]
@@ -12,12 +12,13 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2pnlp"]
 bounce = 1.2
 
-[node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player", "_gameOverScreen", "_victoryScreen")]
+[node name="MainScene" type="Node" node_paths=PackedStringArray("_map", "_player", "_camera", "_gameOverScreen", "_victoryScreen")]
 script = ExtResource("1_kkplw")
-Level1 = ExtResource("2_4y5nm")
+Level1 = ExtResource("2_xdt4c")
 Level2 = ExtResource("3_y6q5d")
 _map = NodePath("Game/Map")
 _player = NodePath("Game/Player")
+_camera = NodePath("Game/Player/Camera2d")
 _gameOverScreen = NodePath("CanvasLayer/Hud/GameOverScreen")
 _victoryScreen = NodePath("CanvasLayer/Hud/WinScreen")
 

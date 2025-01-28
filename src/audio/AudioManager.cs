@@ -117,6 +117,11 @@ public partial class AudioManager : Node2D
 
 		return player;
 	}
+	
+	public void StopMusic()
+	{
+		_musicPlayer.Stop();
+	}
 
 	public void PlayMusic(AudioType audioType, float linearVolume = 0.4f)
 	{
@@ -125,7 +130,6 @@ public partial class AudioManager : Node2D
 		_musicPlayer.Stop();
 		_musicPlayer.Stream     = _audioResources[(int)audioType];
 		_musicPlayer.VolumeDb   = GetVolumeDbFromPercievedLinear(linearVolume);
-		_musicPlayer.PitchScale = 1.0f + GD.Randf() * 0.1f; // Small pitch variation
 		_musicPlayer.Play();
 
 		if (_musicPlayer.Stream is AudioStreamWav streamWav)
