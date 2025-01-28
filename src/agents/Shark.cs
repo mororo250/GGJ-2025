@@ -19,7 +19,7 @@ public partial class Shark : CharacterBody2D
 	[Export] private float  _attackSpeed  = 65; //  pixels per seconds
 	[Export] private uint   _cooldownTime = 90;  // frames
 	[Export] private uint   _attackDamage = 250; 
-	[Export] private uint   _attackRange  = 200; // pixels
+	[Export] private uint   _attackRange  = 250; // pixels
 	private          Player _player;
 	private          uint   _currentCooldownTime = 0; // frames
 	
