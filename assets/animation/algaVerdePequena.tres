@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://pdwnsqajcoq0"]
+
+[ext_resource type="Texture2D" uid="uid://c8fys88e3hl1e" path="res://assets/scenario/elementos_cenario.png" id="1_ssowr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_334o6"]
+atlas = ExtResource("1_ssowr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3c00"]
+atlas = ExtResource("1_ssowr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhlup"]
+atlas = ExtResource("1_ssowr")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_334o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3c00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhlup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
