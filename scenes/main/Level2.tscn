@@ -1,18 +1,21 @@
-[gd_scene load_steps=71 format=4 uid="uid://feih5fcntmg"]
+[gd_scene load_steps=61 format=4 uid="uid://feih5fcntmg"]
 
 [ext_resource type="Script" path="res://src/main/Level.cs" id="1_ipyo5"]
 [ext_resource type="PackedScene" uid="uid://c1tdxfutxxtvr" path="res://scenes/map/ParallaxBackground.tscn" id="1_lauqo"]
 [ext_resource type="PackedScene" uid="uid://bfpudu84x7v8y" path="res://scenes/map/Map.tscn" id="2_3vtn8"]
 [ext_resource type="Texture2D" uid="uid://c8fys88e3hl1e" path="res://assets/scenario/elementos_cenario.png" id="3_3x88r"]
 [ext_resource type="PackedScene" uid="uid://3fprt37su4vb" path="res://scenes/interactables/trash.tscn" id="4_7ughu"]
-[ext_resource type="PackedScene" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
+[ext_resource type="SpriteFrames" uid="uid://pdwnsqajcoq0" path="res://assets/animation/algaVerdePequena.tres" id="4_j4ckt"]
+[ext_resource type="PackedScene" uid="uid://bkl5w7b6gjahw" path="res://scenes/agents/Penguin.tscn" id="4_jf523"]
+[ext_resource type="SpriteFrames" uid="uid://c0f0ruflovplt" path="res://assets/animation/algaVerdeDupla.tres" id="5_kqher"]
 [ext_resource type="PackedScene" uid="uid://clsjaw8mnh6y8" path="res://scenes/agents/Shark.tscn" id="6_3v1wl"]
+[ext_resource type="SpriteFrames" uid="uid://d25pjgphwsi5u" path="res://scenes/main/AlgaPequenaClaro.tres" id="6_5562j"]
 [ext_resource type="PackedScene" uid="uid://dai7tj8cxbx7l" path="res://scenes/agents/Stingray.tscn" id="6_ypwqx"]
 [ext_resource type="PackedScene" uid="uid://46846brmmr2o" path="res://scenes/agents/LightFish.tscn" id="7_a8sx5"]
 [ext_resource type="PackedScene" uid="uid://dqdhyajd5flba" path="res://scenes/interactables/trashManager.tscn" id="8_ae35d"]
 [ext_resource type="PackedScene" uid="uid://cjsubf44d6hqc" path="res://scenes/interactables/BubbleSpawner.tscn" id="9_ba07d"]
 [ext_resource type="PackedScene" uid="uid://dt2s6rt75on1a" path="res://scenes/interactables/bubblesManager.tscn" id="10_c51y3"]
-[ext_resource type="PackedScene" path="res://scenes/agents/LifeFish.tscn" id="12_id3ho"]
+[ext_resource type="PackedScene" uid="uid://d1bt1sdfttxei" path="res://scenes/agents/LifeFish.tscn" id="12_id3ho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4e46"]
 atlas = ExtResource("3_3x88r")
@@ -53,100 +56,6 @@ region = Rect2(128, 144, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cuv8w"]
 atlas = ExtResource("3_3x88r")
 region = Rect2(192, 112, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_334o6"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3c00"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhlup"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bkv00"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_334o6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o3c00")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lhlup")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_weges"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(0, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1d5uh"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(16, 96, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yloa1"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(32, 96, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g5w8o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_weges")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1d5uh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yloa1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vea38"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qufjh"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_thopk"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ohic0"]
-atlas = ExtResource("3_3x88r")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8omoh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vea38")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qufjh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_thopk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ohic0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tauj1"]
 atlas = ExtResource("3_3x88r")
@@ -1212,161 +1121,156 @@ texture = SubResource("AtlasTexture_cuv8w")
 
 [node name="AlgaVerdePequena1" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(163, 173)
-sprite_frames = SubResource("SpriteFrames_bkv00")
+sprite_frames = ExtResource("4_j4ckt")
 autoplay = "default"
-frame_progress = 0.968682
 
 [node name="AlgaVerdePequena4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1880, 573)
-sprite_frames = SubResource("SpriteFrames_bkv00")
+sprite_frames = ExtResource("4_j4ckt")
 autoplay = "default"
-frame_progress = 0.673114
 
 [node name="AlgaVerdePequena5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1867, 575)
-sprite_frames = SubResource("SpriteFrames_bkv00")
-frame_progress = 0.256903
+sprite_frames = ExtResource("4_j4ckt")
+autoplay = "default"
 
 [node name="AlgaVerdePequena2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1261, 607)
-sprite_frames = SubResource("SpriteFrames_bkv00")
-frame_progress = 0.953321
+sprite_frames = ExtResource("4_j4ckt")
+autoplay = "default"
 
 [node name="AlgaVerdePequena3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1251, 615)
-sprite_frames = SubResource("SpriteFrames_bkv00")
+sprite_frames = ExtResource("4_j4ckt")
 autoplay = "default"
-frame_progress = 0.778078
 
 [node name="AlgaVerdePequena6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3633, 624)
-sprite_frames = SubResource("SpriteFrames_bkv00")
+sprite_frames = ExtResource("4_j4ckt")
 autoplay = "default"
-frame_progress = 0.997215
 
 [node name="AlgaVerdePequena7" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3724, 624)
-sprite_frames = SubResource("SpriteFrames_bkv00")
+sprite_frames = ExtResource("4_j4ckt")
 autoplay = "default"
-frame_progress = 0.918012
 
 [node name="AlgaVerdeDupla" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(68, 148)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.0660216
 
 [node name="AlgaVerdeDupla3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1813, 566)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.191709
 
 [node name="AlgaVerdeDupla9" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3566, 645)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.620476
 
 [node name="AlgaVerdeDupla10" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3580, 651)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.649734
 
 [node name="AlgaVerdeDupla11" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3622, 625)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.387874
 
 [node name="AlgaVerdeDupla12" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3668, 615)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.343622
 
 [node name="AlgaVerdeDupla13" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3718, 612)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.080895
 
 [node name="AlgaVerdeDupla14" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(3732, 626)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.0138007
 
 [node name="AlgaVerdeDupla4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1829, 572)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.42653
 
 [node name="AlgaVerdeDupla5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1845, 565)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.908078
 
 [node name="AlgaVerdeDupla7" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2176, 166)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.923445
 
 [node name="AlgaVerdeDupla8" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2187, 170)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.457132
 
 [node name="AlgaVerdeDupla6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(1900, 567)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.85461
 
 [node name="AlgaVerdeDupla2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(782, 309)
-sprite_frames = SubResource("SpriteFrames_g5w8o")
+sprite_frames = ExtResource("5_kqher")
 autoplay = "default"
 frame_progress = 0.492214
 
 [node name="AlgaPequenaClaro" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(174, 171)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.163217
 
 [node name="AlgaPequenaClaro2" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(726, 339)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.026758
 
 [node name="AlgaPequenaClaro3" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2039, 604)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.161361
 
 [node name="AlgaPequenaClaro4" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2090, 540)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.764204
 
 [node name="AlgaPequenaClaro6" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(188, 172)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.374558
 
 [node name="AlgaPequenaClaro5" type="AnimatedSprite2D" parent="AlgasAnimadas"]
 position = Vector2(2101, 535)
-sprite_frames = SubResource("SpriteFrames_8omoh")
+sprite_frames = ExtResource("6_5562j")
 autoplay = "default"
 frame_progress = 0.491919
 
